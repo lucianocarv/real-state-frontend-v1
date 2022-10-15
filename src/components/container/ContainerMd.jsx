@@ -7,7 +7,7 @@ const ContainerMd = styled.div`
   min-height: 4rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: ${(props) => (props.center ? "center" : "space-between")};
 `;
 
 export default ContainerMd;

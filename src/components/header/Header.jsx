@@ -36,7 +36,8 @@ const HeaderComponent = () => {
           </Link>
         </Left>
         <Right>
-          <ActionButton>List a Property</ActionButton> | <ActionButton>Login</ActionButton>
+          <ActionButton>List a Property</ActionButton>
+          <ActionButton>Login</ActionButton>
         </Right>
       </ContainerMd>
     </Header>
