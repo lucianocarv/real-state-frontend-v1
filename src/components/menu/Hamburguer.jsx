@@ -1,20 +1,13 @@
 import React from "react";
-import styled from "styled-components";
-import { CgMenu } from "react-icons/cg";
 
-const Hamburguer = styled.span`
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 30px;
-`;
+import { CgMenu } from "react-icons/cg";
+import { HamburguerStyled } from "./Styles";
 
 const HamburguerComponent = () => {
   return (
-    <Hamburguer>
+    <HamburguerStyled>
       <CgMenu />
-    </Hamburguer>
+    </HamburguerStyled>
   );
 };
 

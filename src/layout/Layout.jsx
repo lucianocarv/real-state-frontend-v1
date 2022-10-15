@@ -1,24 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Outlet } from "react-router";
-import { PulseLoader } from "react-spinners";
-import styled from "styled-components";
 
 import HeaderComponent from "../components/header/Header";
+import ContainerFull from "../components/container/ContainerFull";
 import Layout from "./Styles";
 
 const LayoutComponent = () => {
-  // const [loading, setLoading] = useState(true);
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setLoading(false);
-  //   }, 3000);
-  // }, []);
-
   return (
-    <Layout>
-      <HeaderComponent />
-      <Outlet />
-    </Layout>
+    <ContainerFull>
+      <Layout>
+        <HeaderComponent />
+        <Outlet />
+      </Layout>
+    </ContainerFull>
   );
 };
 

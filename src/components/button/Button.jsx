@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
-  min-height: 3rem;
-  padding: 0 2rem;
+  min-height: 2.5rem;
+  padding: 0 1.5rem;
   margin: 0px 1rem;
   outline: none;
-  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
 `;
 
@@ -22,11 +22,14 @@ export const MenuButton = styled(Button)`
 `;
 
 export const ActionButton = styled(Button)`
-  background-color: #0b846e;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
+  background-color: ${(props) => (props.invert ? "white" : "#0b846e")};
+  color: ${(props) => (props.invert ? "#0b846e" : "white")};
+  font-size: 1rem;
+  font-weight: 420;
+  border: 2px solid #0b846e;
   &:hover {
-    background-color: #1e5f23;
+    background-color: ${(props) => (props.invert ? "#0b846e" : "white")};
+    color: ${(props) => (props.invert ? "white" : "#0b846e")};
+    border: 2px solid ${(props) => (props.invert ? "#0b846e" : "#0b846e")};
   }
 `;

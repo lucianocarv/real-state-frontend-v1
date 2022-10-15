@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const ProvinceCardStyles = styled.div`
+export const CardStyled = styled.div`
   position: relative;
   height: 350px;
-  width: 300px;
-  background-color: red;
+  min-width: 280px;
+  background-color: black;
   flex-grow: 1;
   overflow: hidden;
-
-  .img-card-province {
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  .img-card-cover {
     width: 100%;
     height: 100%;
     border-radius: inherit;
@@ -25,14 +25,6 @@ const ProvinceCardStyles = styled.div`
     justify-content: center;
     transition: all 0.4s ease;
   }
-
-  border-radius: 10px;
-  cursor: pointer;
-
-  &:hover .img-card-province {
-    transform: scale(1.1);
-  }
-
   p {
     width: 100%;
     text-align: center;
@@ -44,17 +36,7 @@ const ProvinceCardStyles = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
   }
+  &:hover .img-card-cover {
+    transform: scale(1.1);
+  }
 `;
-
-const ProvinceCard = (props) => {
-  return (
-    <Link to={props.link}>
-      <ProvinceCardStyles image={props.image}>
-        <div className="img-card-province"></div>
-        <p>{props.title}</p>
-      </ProvinceCardStyles>
-    </Link>
-  );
-};
-
-export default ProvinceCard;

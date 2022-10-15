@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { BeatLoader } from "react-spinners";
+import { PuffLoader } from "react-spinners";
 import styled from "styled-components";
-import CityCard from "../components/card/home/ProvinceCard";
+
+import CityCard from "../components/card/principal/Card";
+import ContainerFull from "../components/container/ContainerFull";
 import ContainerMd from "../components/container/ContainerMd";
+import { ContainerForLoader } from "../components/loading/Container";
 
 const HomeStyles = styled.div`
   display: flex;
@@ -14,7 +17,7 @@ const HomeStyles = styled.div`
 const HomeTitle = styled.h1`
   margin-top: 1rem;
   padding: 2rem;
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: bold;
   display: flex;
   justify-content: center;
@@ -44,7 +47,7 @@ const GreenStyle = styled.span`
 `;
 
 const SelectAreaStyle = styled.div`
-  padding: 5rem 0rem;
+  padding: 3rem 0rem;
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -63,35 +66,30 @@ const HomePage = () => {
       });
   }, []);
 
-  const ConatainerLoading = styled.span`
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, 50%);
-  `;
-
   return loading ? (
-    <ConatainerLoading>
-      <BeatLoader />
-    </ConatainerLoading>
+    <ContainerForLoader>
+      <PuffLoader />
+    </ContainerForLoader>
   ) : (
-    <HomeStyles>
-      <ContainerMd center>
-        <HomeTitle>
-          <ContainerMd center>Find a Home,</ContainerMd>
-          <ContainerMd center>
-            Rent a Home <GreenStyle>Faster!</GreenStyle>
-          </ContainerMd>
-        </HomeTitle>
-      </ContainerMd>
-      <ContainerMd center>
-        <SelectAreaStyle>
-          {provinces.map((province) => {
-            return <CityCard link={String(province.initials).toLowerCase()} title={province.name} image={province.img_cover} />;
-          })}
-        </SelectAreaStyle>
-      </ContainerMd>
-    </HomeStyles>
+    <ContainerFull>
+      <HomeStyles>
+        <ContainerMd justify="center">
+          <HomeTitle>
+            <ContainerMd justify="center">Find a Home,</ContainerMd>
+            <ContainerMd justify="center">
+              Rent a Home <GreenStyle>Faster!</GreenStyle>
+            </ContainerMd>
+          </HomeTitle>
+        </ContainerMd>
+        <ContainerMd justify="center">
+          <SelectAreaStyle>
+            {provinces.map((province) => {
+              return <CityCard key={province._id} link={String(province.initials).toLowerCase()} title={province.name} image={province.img_cover} />;
+            })}
+          </SelectAreaStyle>
+        </ContainerMd>
+      </HomeStyles>
+    </ContainerFull>
   );
 };
 
