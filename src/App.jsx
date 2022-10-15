@@ -3,10 +3,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GlobalStyles } from "./Styles";
 
 import Layout from "./layout/Layout";
-import HomePage from "./pages/Home";
-import ProvincePage from "./pages/Province";
-import CityPage from "./pages/City";
-import CommunityPage from "./pages/Community";
+import HomePage from "./pages/home/Home";
+import ProvincePage from "./pages/province/Province";
+import CityPage from "./pages/city/City";
+import CommunityPage from "./pages/community/Community";
 
 function App() {
   return (
