@@ -4,6 +4,7 @@ import { PuffLoader } from "react-spinners";
 import Card from "../../components/card/principal/Card";
 import ContainerFull from "../../components/container/ContainerFull";
 import ContainerMd from "../../components/container/ContainerMd";
+import Footer from "../../components/footer/Footer";
 import { ContainerForLoader } from "../../components/loading/Container";
 
 import { HomePageStyled, HomePageTitleStyled, HomePageTitleAnimationStyled, HomePageCitiesSectionStyled } from "./Styles";
@@ -43,6 +44,7 @@ const HomePage = () => {
           </HomePageCitiesSectionStyled>
         </ContainerMd>
       </HomePageStyled>
+      <Footer />
     </ContainerFull>
   );
 };
