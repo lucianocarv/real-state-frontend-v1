@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { IoHome } from "react-icons/io5";
-import { FaMapMarkerAlt } from "react-icons/fa";
-import { IoIosPeople } from "react-icons/io";
+import { IoLocationSharp, IoCheckmarkCircleSharp, IoPeople } from "react-icons/io5";
 import { ActionButton } from "../../button/Button";
 
-import { PropertyCardImageStyled, PropertyCardInfoListStyled, PropertyCardInfoStyled, PropertyCardPriceStyled, PropertyCardStyled, CardInfoLine } from "./Styles";
+import { PropertyCardImageStyled, PropertyCardInfoListStyled, PropertyCardInfoStyled, PropertyCardPriceStyled, PropertyCardStyled, CardInfoLine, PropertyButtons } from "./Styles";
+import View from "../../property/View";
 
 const PropertyCard = (props) => {
   return (
@@ -21,14 +21,19 @@ const PropertyCard = (props) => {
             <IoHome /> {props.type}
           </CardInfoLine>
           <CardInfoLine>
-            <FaMapMarkerAlt /> {props.address}
+            <IoPeople /> {props.community}
           </CardInfoLine>
           <CardInfoLine>
-            <IoIosPeople /> {props.community}
+            <IoLocationSharp /> 1515 12th Street SW
           </CardInfoLine>
-          <ActionButton>Contact</ActionButton>
-          <ActionButton invert>Hide</ActionButton>
+          <CardInfoLine>
+            <IoCheckmarkCircleSharp /> Unfurnished | Long Term
+          </CardInfoLine>
         </PropertyCardInfoListStyled>
+        <PropertyButtons>
+          <ActionButton invert>Contact</ActionButton>
+          <ActionButton invert>View</ActionButton>
+        </PropertyButtons>
       </PropertyCardInfoStyled>
     </PropertyCardStyled>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { ActionButton, MenuButton } from "../button/Button";
 import Logo from "../logo/Logo";
@@ -23,7 +24,7 @@ const HeaderComponent = () => {
     <ContainerFull>
       <Menu click={closeMenu} close={close} />
       <Header>
-        <ContainerMd>
+        <ContainerMd full={true} padding="0rem 1.5rem">
           <Left>
             <HamburguerComponent click={closeMenu} />
             <Link to="/">

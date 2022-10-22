@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const CityPageStyled = styled.div`
-  margin: 1rem auto;
+  margin: 0rem auto;
   width: 100%;
-  min-height: 50vh;
+  min-height: 92vh;
 `;
 
 export const CityPagePropertiesContainer = styled.div`
@@ -31,11 +31,11 @@ export const CityPageFilterContainer = styled.div`
 
 export const CityGridMap = styled.div`
   width: 100%;
-  min-height: 90vh;
+  max-height: 100%;
   background-color: black;
   display: grid;
   grid-template-columns: 1fr 550px;
-  grid-template-rows: 1fr;
+  grid-template-rows: 90vh;
 `;
 
 export const CityMap = styled.div`
@@ -43,5 +43,11 @@ export const CityMap = styled.div`
 `;
 
 export const CityList = styled.div`
-  background-color: blue;
+  background-color: white;
+  overflow-y: scroll;
+  padding: 0.4rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  gap: 5px;
 `;

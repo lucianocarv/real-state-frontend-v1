@@ -1,0 +1,9 @@
+.map-marker-price {
+  font-size: 18px;
+  height: 30px;
+  width: 80px;
+  border-radius: 50px;
+  color: yellow;
+
+  background-color: green;
+}

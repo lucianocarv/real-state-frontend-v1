@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { IoBody } from "react-icons/io5";
 import { useParams } from "react-router-dom";
 import { PuffLoader } from "react-spinners";
 
+import "./Syles.css";
+
+import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
+
 import PropertyCard from "../../components/card/property/Property";
 import ContainerFull from "../../components/container/ContainerFull";
-import ContainerMd from "../../components/container/ContainerMd";
 import { ContainerForLoader } from "../../components/loading/Container";
-import { Name } from "../../components/titles/PrincipalTitle";
-import { Loader } from "@googlemaps/js-api-loader";
 import { CityGridMap, CityList, CityMap } from "./Styles";
 
-import { CityPageStyled, CityPagePropertiesContainer, CityPageFilterContainer } from "./Styles";
+import { CityPageStyled } from "./Styles";
 
 const CityPage = () => {
   const { province, city } = useParams();
@@ -21,9 +21,11 @@ const CityPage = () => {
   const [communities, setCommunities] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:3001/${province}/${city}`)
-      .then((city) => city.json())
       .then((city) => {
-        setCurrentCity(city);
+        return city.json();
+      })
+      .then((city) => {
+        setCurrentCity(city[0]);
         setCommunities(city[0].communities);
         setLoading(false);
       });
@@ -38,6 +40,11 @@ const CityPage = () => {
     return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
   });
 
+  const { isLoaded } = useJsApiLoader({
+    id: "google-map-script",
+    googleMapsApiKey: "?",
+  });
+
   return loading ? (
     <ContainerForLoader>
       <PuffLoader />
@@ -46,17 +53,15 @@ const CityPage = () => {
     <CityPageStyled>
       <ContainerFull>
         <CityGridMap>
-          <CityMap id="map"></CityMap>
-          <CityList></CityList>
+          <CityMap>{isLoaded ? <GoogleMap mapContainerStyle={{ width: "100%", height: "100%" }} center={currentCity.coords} zoom={11}></GoogleMap> : <PuffLoader />}</CityMap>
+          <CityList>
+            <PropertyCard type="Apartment" community="Lake Bonavista" img="https://cdn.pixabay.com/photo/2014/11/21/17/17/house-540796_960_720.jpg" price="1200 - 1600" />
+            <PropertyCard type="House" community="Downtown" img="https://cdn.pixabay.com/photo/2014/11/21/17/17/house-540796_960_720.jpg" price="1000 - 1470" />
+            <PropertyCard type="Townhouse" community="Lake Bonavista" img="https://cdn.pixabay.com/photo/2014/11/21/17/17/house-540796_960_720.jpg" price="2400 - 3500" />
+            <PropertyCard type="Apartment" community="Lake Bonavista" img="https://cdn.pixabay.com/photo/2014/11/21/17/17/house-540796_960_720.jpg" price="900 - 1890" />
+          </CityList>
         </CityGridMap>
       </ContainerFull>
-      {/* <ContainerMd justify="center">
-        <CityPagePropertiesContainer>
-          {getAllPropertiesOfCurrentCity.map((property) => {
-            return <PropertyCard link={property._id} type={property.type} address={property.address.street} community={property.address.community} price={property.price} img={property.img_cover} />;
-          })}
-        </CityPagePropertiesContainer>
-      </ContainerMd> */}
     </CityPageStyled>
   );
 };

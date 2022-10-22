@@ -8,6 +8,16 @@ export const GlobalStyles = createGlobalStyle`
       margin: 0px;
       box-sizing: border-box;
       font-family: 'Inter', sans-serif;
+      &::-webkit-scrollbar {
+        background-color: white;
+        width: 10px;
+
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: #0b846e;
+        border-radius: 50px;
+        
+      }
     }
 
     body {
