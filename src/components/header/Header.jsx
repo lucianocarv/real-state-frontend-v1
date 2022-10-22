@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { ActionButton, MenuButton } from "../button/Button";
@@ -11,16 +11,21 @@ import Right from "./Right";
 import ContainerFull from "../container/ContainerFull";
 import ContainerMd from "../container/ContainerMd";
 import HamburguerComponent from "../menu/Hamburguer";
+import Menu from "../menu/Menu";
 
 const HeaderComponent = () => {
+  const [close, setClose] = useState(true);
+
+  const closeMenu = () => {
+    close ? setClose(false) : setClose(true);
+  };
   return (
     <ContainerFull>
+      <Menu click={closeMenu} close={close} />
       <Header>
         <ContainerMd>
           <Left>
-            <MenuButton outlined>
-              <HamburguerComponent />
-            </MenuButton>
+            <HamburguerComponent click={closeMenu} />
             <Link to="/">
               <Logo />
             </Link>

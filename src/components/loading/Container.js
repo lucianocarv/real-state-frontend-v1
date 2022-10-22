@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerForLoader = styled.span`
-  width: 100vw;
+  width: 50vw;
   position: absolute;
   left: 50%;
   top: 50%;

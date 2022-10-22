@@ -3,9 +3,9 @@ import React from "react";
 import { CgMenu } from "react-icons/cg";
 import { HamburguerStyled } from "./Styles";
 
-const HamburguerComponent = () => {
+const HamburguerComponent = (props) => {
   return (
-    <HamburguerStyled>
+    <HamburguerStyled onClick={() => props.click()}>
       <CgMenu />
     </HamburguerStyled>
   );

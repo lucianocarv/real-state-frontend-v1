@@ -3,14 +3,14 @@ import styled from "styled-components";
 export const Button = styled.button`
   min-height: 2.5rem;
   padding: 0 1.5rem;
-  margin: 0px 1rem;
+  margin: 0px 0.5rem;
   outline: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   border: none;
-  border-radius: 5px;
+  border-radius: 3px;
   cursor: pointer;
 `;
 

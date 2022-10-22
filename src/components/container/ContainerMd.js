@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 const ContainerMd = styled.div`
   width: 100%;
-  max-width: 1440px;
+  height: ${(props) => (props.height ? props.height : "auto")};
+  max-width: 1240px;
   display: flex;
   margin: 0 auto;
   align-items: center;

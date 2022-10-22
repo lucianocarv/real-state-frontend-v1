@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { IoBody } from "react-icons/io5";
 import { useParams } from "react-router-dom";
 import { PuffLoader } from "react-spinners";
 
@@ -7,6 +8,8 @@ import ContainerFull from "../../components/container/ContainerFull";
 import ContainerMd from "../../components/container/ContainerMd";
 import { ContainerForLoader } from "../../components/loading/Container";
 import { Name } from "../../components/titles/PrincipalTitle";
+import { Loader } from "@googlemaps/js-api-loader";
+import { CityGridMap, CityList, CityMap } from "./Styles";
 
 import { CityPageStyled, CityPagePropertiesContainer, CityPageFilterContainer } from "./Styles";
 
@@ -41,19 +44,19 @@ const CityPage = () => {
     </ContainerForLoader>
   ) : (
     <CityPageStyled>
-      <Name>{currentCity[0].name}</Name>
       <ContainerFull>
-        <ContainerMd>
-          <CityPageFilterContainer></CityPageFilterContainer>
-        </ContainerMd>
+        <CityGridMap>
+          <CityMap id="map"></CityMap>
+          <CityList></CityList>
+        </CityGridMap>
       </ContainerFull>
-      <ContainerMd justify="center">
+      {/* <ContainerMd justify="center">
         <CityPagePropertiesContainer>
           {getAllPropertiesOfCurrentCity.map((property) => {
             return <PropertyCard link={property._id} type={property.type} address={property.address.street} community={property.address.community} price={property.price} img={property.img_cover} />;
           })}
         </CityPagePropertiesContainer>
-      </ContainerMd>
+      </ContainerMd> */}
     </CityPageStyled>
   );
 };
