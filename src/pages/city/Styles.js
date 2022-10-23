@@ -48,6 +48,6 @@ export const CityList = styled.div`
   padding: 0.4rem;
   display: grid;
   grid-template-columns: 1fr;
-  grid-auto-rows: auto;
+  grid-auto-rows: min-content;
   gap: 5px;
 `;

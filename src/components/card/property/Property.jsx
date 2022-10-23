@@ -2,16 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { IoHome } from "react-icons/io5";
-import { IoLocationSharp, IoCheckmarkCircleSharp, IoPeople } from "react-icons/io5";
+import { IoLocationSharp, IoPeople } from "react-icons/io5";
 import { ActionButton } from "../../button/Button";
 
+import { FaHandshake } from "react-icons/fa";
+
 import { PropertyCardImageStyled, PropertyCardInfoListStyled, PropertyCardInfoStyled, PropertyCardPriceStyled, PropertyCardStyled, CardInfoLine, PropertyButtons } from "./Styles";
-import View from "../../property/View";
 
 const PropertyCard = (props) => {
   return (
     <PropertyCardStyled>
-      <PropertyCardImageStyled src={props.img} alt="" />
       <PropertyCardInfoStyled>
         <Link to={props.link}>
           <PropertyCardPriceStyled>${props.price}</PropertyCardPriceStyled>
@@ -24,17 +24,20 @@ const PropertyCard = (props) => {
             <IoPeople /> {props.community}
           </CardInfoLine>
           <CardInfoLine>
-            <IoLocationSharp /> 1515 12th Street SW
+            <IoLocationSharp /> {props.address}
           </CardInfoLine>
           <CardInfoLine>
-            <IoCheckmarkCircleSharp /> Unfurnished | Long Term
+            <FaHandshake /> {props.company}
           </CardInfoLine>
         </PropertyCardInfoListStyled>
         <PropertyButtons>
           <ActionButton invert>Contact</ActionButton>
-          <ActionButton invert>View</ActionButton>
+          <Link to={props.link}>
+            <ActionButton invert>View</ActionButton>
+          </Link>
         </PropertyButtons>
       </PropertyCardInfoStyled>
+      <PropertyCardImageStyled src={props.img} alt="" />
     </PropertyCardStyled>
   );
 };

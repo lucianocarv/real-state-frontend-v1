@@ -27,6 +27,7 @@ export const PropertyCardImageStyled = styled.img`
 
 export const PropertyCardInfoStyled = styled.div`
   padding: 0.5rem;
+  max-width: 50%;
   align-self: stretch;
   display: flex;
   flex-direction: column;
@@ -69,4 +70,11 @@ export const CardInfoLine = styled.li``;
 export const PropertyButtons = styled.div`
   display: flex;
   justify-content: space-between;
+  gap: 0.8rem;
+`;
+
+export const FeatureItem = styled.p`
+  overflow: hidden;
+  display: flex;
+  max-width: 80%;
 `;

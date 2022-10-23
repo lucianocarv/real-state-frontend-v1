@@ -7,6 +7,7 @@ import HomePage from "./pages/home/Home";
 import ProvincePage from "./pages/province/Province";
 import CityPage from "./pages/city/City";
 import CommunityPage from "./pages/community/Community";
+import View from "./components/property/View";
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index path="/" element={<HomePage />} />
           <Route path="/:province" element={<ProvincePage />}></Route>
-          <Route path="/:province/:city" element={<CityPage />}></Route>
+          <Route path="/:province/:city" element={<CityPage />}>
+            <Route path="/:province/:city/:community/:property" element={<View />}></Route>
+          </Route>
           <Route path="/:province/:city/:community" element={<CommunityPage />}></Route>
         </Route>
       </Routes>

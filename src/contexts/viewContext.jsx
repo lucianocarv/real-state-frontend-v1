@@ -1,3 +1,5 @@
-import React from "react";
+import { createContext } from "react";
 
-export const viewContext = React.createContext();
+const ViewContext = createContext(true);
+
+export default ViewContext;
