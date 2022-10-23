@@ -43,6 +43,7 @@ export const CityMap = styled.div`
 `;
 
 export const CityList = styled.div`
+  position: relative;
   background-color: white;
   overflow-y: scroll;
   padding: 0.4rem;

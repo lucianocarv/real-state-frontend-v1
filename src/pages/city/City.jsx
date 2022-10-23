@@ -8,6 +8,7 @@ import ContainerFull from "../../components/container/ContainerFull";
 import { ContainerForLoader } from "../../components/loading/Container";
 import { CityGridMap, CityList, CityMap } from "./Styles";
 import { CityPageStyled } from "./Styles";
+import NoProperties from "../../components/notfound/noproperties/NoProperties";
 
 const CityPage = () => {
   const { province, city } = useParams();
@@ -53,23 +54,27 @@ const CityPage = () => {
         <CityGridMap>
           <CityMap>{isLoaded ? <GoogleMap mapContainerStyle={{ width: "100%", height: "100%" }} center={currentCity.coords} zoom={11}></GoogleMap> : <PuffLoader />}</CityMap>
           <CityList>
-            {getAllPropertiesOfCurrentCity.map((property) => {
-              let community = String(property.address.community).toLocaleLowerCase().replace(" ", "-");
-              return (
-                <Fragment>
-                  <PropertyCard
-                    img="https://f1a3d4fea3a9a877e732-356deb4d9644d2835b7712e712dbd1ea.ssl.cf2.rackcdn.com/343046/slide_7801023.v.5f7bcd48e1ff7322a5428f27c8035b81.jpg"
-                    key={property._id}
-                    type={property.type}
-                    community={property.address.community}
-                    price={property.price}
-                    address={property.address.street}
-                    company={property.price}
-                    link={community + "/" + property._id}
-                  />
-                </Fragment>
-              );
-            })}
+            {getAllPropertiesOfCurrentCity.length > 0 ? (
+              getAllPropertiesOfCurrentCity.map((property) => {
+                let community = String(property.address.community).toLocaleLowerCase().replace(" ", "-");
+                return (
+                  <Fragment>
+                    <PropertyCard
+                      img="https://f1a3d4fea3a9a877e732-356deb4d9644d2835b7712e712dbd1ea.ssl.cf2.rackcdn.com/343046/slide_7801023.v.5f7bcd48e1ff7322a5428f27c8035b81.jpg"
+                      key={property._id}
+                      type={property.type}
+                      community={property.address.community}
+                      price={property.price}
+                      address={property.address.street}
+                      company={property.price}
+                      link={community + "/" + property._id}
+                    />
+                  </Fragment>
+                );
+              })
+            ) : (
+              <NoProperties />
+            )}
           </CityList>
         </CityGridMap>
       </ContainerFull>

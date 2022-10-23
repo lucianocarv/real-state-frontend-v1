@@ -61,8 +61,8 @@ const Menu = (props) => {
       </ContainerMd>
       <ContainerMd justify="flex-start">
         <MenuList>
-          <Link to="/ab">
-            <ListItem>Most Visited Cities</ListItem>
+          <Link to="/province/create">
+            <ListItem>Insert Province</ListItem>
           </Link>
           <Link to="/ab">
             <ListItem>Apartments</ListItem>

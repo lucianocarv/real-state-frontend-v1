@@ -7,6 +7,8 @@ import { ActionButton } from "../../button/Button";
 
 import { FaHandshake } from "react-icons/fa";
 
+import { MdFavoriteBorder } from "react-icons/md";
+
 import { PropertyCardImageStyled, PropertyCardInfoListStyled, PropertyCardInfoStyled, PropertyCardPriceStyled, PropertyCardStyled, CardInfoLine, PropertyButtons } from "./Styles";
 
 const PropertyCard = (props) => {
@@ -31,7 +33,7 @@ const PropertyCard = (props) => {
           </CardInfoLine>
         </PropertyCardInfoListStyled>
         <PropertyButtons>
-          <ActionButton invert>Contact</ActionButton>
+          <ActionButton>Favorite</ActionButton>
           <Link to={props.link}>
             <ActionButton invert>View</ActionButton>
           </Link>
