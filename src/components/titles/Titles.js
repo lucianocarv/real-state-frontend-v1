@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Name = styled.p`
+export const PrincipalTitle = styled.h1`
   font-size: 50px;
   font-weight: bold;
   text-align: center;

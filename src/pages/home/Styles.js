@@ -40,6 +40,7 @@ export const HomePageTitleAnimationStyled = styled.span`
 `;
 
 export const HomePageCitiesSectionStyled = styled.div`
+  max-width: 100vw;
   padding: 3rem 0rem;
   display: flex;
   justify-content: center;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CardStyled = styled.div`
+export const Card = styled.div`
   position: relative;
   height: 350px;
   min-width: 280px;
@@ -9,8 +9,9 @@ export const CardStyled = styled.div`
   overflow: hidden;
   border-radius: 10px;
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
-  .img-card-cover {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  .img {
     width: 100%;
     height: 100%;
     border-radius: inherit;
@@ -25,6 +26,9 @@ export const CardStyled = styled.div`
     justify-content: center;
     transition: all 0.4s ease;
   }
+  &:hover .img {
+    transform: scale(1.1);
+  }
   p {
     width: 100%;
     text-align: center;
@@ -35,8 +39,5 @@ export const CardStyled = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
-  &:hover .img-card-cover {
-    transform: scale(1.1);
   }
 `;

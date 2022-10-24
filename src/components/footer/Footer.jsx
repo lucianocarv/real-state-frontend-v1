@@ -1,45 +1,45 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { FooterFullContainerStyled, FooterStyled, FooterSectionStyled, FooterSectionTitleStyled, FooterSectionUlStyled } from "./Styles";
+import { FooterFullContainerStyled } from "./styles";
 
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   return (
     <FooterFullContainerStyled>
-      <FooterStyled>
-        <FooterSectionStyled>
-          <FooterSectionTitleStyled>POPULAR SEARCHES</FooterSectionTitleStyled>
-          <FooterSectionUlStyled>
+      <footer className="footer">
+        <section>
+          <h2>POPULAR SEARCHES</h2>
+          <ul>
             <Link to="/">Apartments Near Me</Link>
             <Link to="/">Condos Near Me</Link>
             <Link to="/">Houses Near Me</Link>
             <Link to="/">Rooms Near Me</Link>
             <Link to="/">All Rentals Near Me</Link>
-          </FooterSectionUlStyled>
-        </FooterSectionStyled>
-        <FooterSectionStyled>
-          <FooterSectionTitleStyled>RENTAL INFO</FooterSectionTitleStyled>
-          <FooterSectionUlStyled>
+          </ul>
+        </section>
+        <section>
+          <h2>RENTAL INFO</h2>
+          <ul>
             <Link to="/">FAQ</Link>
             <Link to="/">Helpful Links</Link>
             <Link to="/">List Of Cities</Link>
             <Link to="/">Community Info and Stts</Link>
-          </FooterSectionUlStyled>
-        </FooterSectionStyled>
-        <FooterSectionStyled>
-          <FooterSectionTitleStyled>LANDLORDS</FooterSectionTitleStyled>
-          <FooterSectionUlStyled>
+          </ul>
+        </section>
+        <section>
+          <h2>LANDLORDS</h2>
+          <ul>
             <Link to="/">List a Property</Link>
             <Link to="/">My Listings</Link>
             <Link to="/">Prices</Link>
             <Link to="/">Property Management Companies</Link>
-          </FooterSectionUlStyled>
-        </FooterSectionStyled>
-        <FooterSectionStyled media>
-          <FooterSectionTitleStyled>SOCIAL MEDIA</FooterSectionTitleStyled>
-          <FooterSectionUlStyled media>
+          </ul>
+        </section>
+        <section id="social-media">
+          <h2>SOCIAL MEDIA</h2>
+          <ul>
             <Link to="/">
               <FaFacebookF />
             </Link>
@@ -49,9 +49,9 @@ const Footer = () => {
             <Link to="/">
               <FaInstagram />
             </Link>
-          </FooterSectionUlStyled>
-        </FooterSectionStyled>
-      </FooterStyled>
+          </ul>
+        </section>
+      </footer>
     </FooterFullContainerStyled>
   );
 };

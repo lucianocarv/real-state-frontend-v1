@@ -35,11 +35,21 @@ export const CityGridMap = styled.div`
   background-color: black;
   display: grid;
   grid-template-columns: 1fr 550px;
-  grid-template-rows: 90vh;
+  grid-template-rows: 92vh;
 `;
 
 export const CityMap = styled.div`
   background-color: red;
+
+  .map-marker-price {
+    font-size: 18px;
+    height: 30px;
+    width: 80px;
+    border-radius: 50px;
+    color: yellow;
+
+    background-color: green;
+  }
 `;
 
 export const CityList = styled.div`
@@ -51,4 +61,25 @@ export const CityList = styled.div`
   grid-template-columns: 1fr;
   grid-auto-rows: min-content;
   gap: 5px;
+`;
+
+export const NotFound = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  p {
+    width: 350px;
+  }
+
+  svg {
+    width: 2rem;
+    height: 2rem;
+  }
 `;

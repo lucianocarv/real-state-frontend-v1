@@ -16,13 +16,8 @@ export const GlobalStyles = createGlobalStyle`
       &::-webkit-scrollbar-thumb {
         background-color: #0b846e;
         border-radius: 50px;
-        
       }
-    }
 
-    body {
-      min-height: 101vh;
-      max-width: 100vw;
     }
 
     a {

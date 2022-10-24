@@ -1,18 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
 
-import { ActionButton, MenuButton } from "../button/Button";
+import { ActionButton } from "../button/styles";
 import Logo from "../logo/Logo";
-
-import { Header } from "./Styles";
-import Left from "./Left";
-import Right from "./Right";
-
-import ContainerFull from "../container/ContainerFull";
-import ContainerMd from "../container/ContainerMd";
-import HamburguerComponent from "../menu/Hamburguer";
-import Menu from "../menu/Menu";
+import { Header, Left, Right } from "./styles";
+import Container from "../container/container";
+// import Menu from "../menu/Menu";
+import { CgMenu } from "react-icons/cg";
+import { Hamburguer } from "./styles";
 
 const HeaderComponent = () => {
   const [close, setClose] = useState(true);
@@ -21,12 +16,14 @@ const HeaderComponent = () => {
     close ? setClose(false) : setClose(true);
   };
   return (
-    <ContainerFull>
-      <Menu click={closeMenu} close={close} />
+    <Container full>
+      {/* <Menu click={closeMenu} close={close} /> */}
       <Header>
-        <ContainerMd full={true} padding="0rem 1.5rem">
+        <Container full width="100vw" justify="space-between" padding="0rem 1.5rem">
           <Left>
-            <HamburguerComponent click={closeMenu} />
+            <Hamburguer onClick={() => closeMenu()}>
+              <CgMenu />
+            </Hamburguer>
             <Link to="/">
               <Logo />
             </Link>
@@ -35,9 +32,9 @@ const HeaderComponent = () => {
             <ActionButton>List a Property</ActionButton>
             <ActionButton>Login</ActionButton>
           </Right>
-        </ContainerMd>
+        </Container>
       </Header>
-    </ContainerFull>
+    </Container>
   );
 };
 

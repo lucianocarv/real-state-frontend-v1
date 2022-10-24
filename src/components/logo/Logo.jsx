@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
 
-import { LogoWordStyled } from "./Styles";
+import { WordStyled } from "./styles";
 
 const Logo = () => {
   return (
     <Fragment>
-      <LogoWordStyled first>real</LogoWordStyled>
-      <LogoWordStyled>state</LogoWordStyled>
+      <WordStyled first>real</WordStyled>
+      <WordStyled>state</WordStyled>
     </Fragment>
   );
 };

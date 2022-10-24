@@ -2,27 +2,22 @@ import React, { Fragment, useState } from "react";
 import { Outlet } from "react-router";
 
 import HeaderComponent from "../components/header/Header";
-import ContainerFull from "../components/container/ContainerFull";
 import Layout from "./Styles";
-import View from "../components/property/View";
+import View from "../components/view/View";
 
-import styled from "styled-components";
+import Container from "../components/container/container";
 const LayoutComponent = () => {
   return (
     <Fragment>
-      <View />
-      <ContainerFull>
+      <Container block full justify="flex-start">
         <Layout>
           <HeaderComponent />
           <Outlet />
         </Layout>
-      </ContainerFull>
+        <View />
+      </Container>
     </Fragment>
   );
 };
-
-styled(LayoutComponent)`
-  filter: brightness(0.9);
-`;
 
 export default LayoutComponent;

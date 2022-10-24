@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { PuffLoader } from "react-spinners";
 
-import Card from "../../components/card/principal/Card";
-import ContainerFull from "../../components/container/ContainerFull";
-import ContainerMd from "../../components/container/ContainerMd";
+import PrincipalCard from "../../components/card/principal/Principal";
+import Container from "../../components/container/container";
 import Footer from "../../components/footer/Footer";
 import { ContainerForLoader } from "../../components/loading/Container";
 
-import { HomePageStyled, HomePageTitleStyled, HomePageTitleAnimationStyled, HomePageCitiesSectionStyled } from "./Styles";
+import {
+  HomePageStyled,
+  HomePageTitleStyled,
+  HomePageTitleAnimationStyled,
+  HomePageCitiesSectionStyled,
+} from "./Styles";
 
 const HomePage = () => {
   const [provinces, setProvinces] = useState([]);
@@ -26,26 +30,33 @@ const HomePage = () => {
       <PuffLoader />
     </ContainerForLoader>
   ) : (
-    <ContainerFull>
+    <Container full justify="center">
       <HomePageStyled>
-        <ContainerMd justify="center">
+        <Container justify="center">
           <HomePageTitleStyled>
-            <ContainerMd justify="center">Find a Home,</ContainerMd>
-            <ContainerMd justify="center">
+            <Container justify="center">Find a Home,</Container>
+            <Container justify="center">
               Rent a Home <HomePageTitleAnimationStyled>Faster!</HomePageTitleAnimationStyled>
-            </ContainerMd>
+            </Container>
           </HomePageTitleStyled>
-        </ContainerMd>
-        <ContainerMd justify="center">
+        </Container>
+        <Container justify="center">
           <HomePageCitiesSectionStyled>
             {provinces.map((province) => {
-              return <Card key={province._id} link={String(province.initials).toLowerCase()} title={province.name} image={province.img_cover} />;
+              return (
+                <PrincipalCard
+                  key={province._id}
+                  link={String(province.initials).toLowerCase()}
+                  title={province.name}
+                  image={province.img_cover}
+                />
+              );
             })}
           </HomePageCitiesSectionStyled>
-        </ContainerMd>
+        </Container>
       </HomePageStyled>
       <Footer />
-    </ContainerFull>
+    </Container>
   );
 };
 

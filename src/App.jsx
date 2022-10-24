@@ -3,12 +3,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GlobalStyles } from "./Styles";
 
 import Layout from "./layout/Layout";
-import HomePage from "./pages/home/Home";
-import ProvincePage from "./pages/province/Province";
-import CityPage from "./pages/city/City";
-import CommunityPage from "./pages/community/Community";
-import View from "./components/property/View";
-import CreateProvincePage from "./pages/province/CreateProvince";
+import HomePage from "./pages/home";
+import CityPage from "./pages/city";
+import CommunityPage from "./pages/community";
+import View from "./components/view/View";
+import ProvincePage from "./pages/province/province-main/index";
+import CreateProvincePage from "./pages/province/province-create/index";
 
 function App() {
   return (

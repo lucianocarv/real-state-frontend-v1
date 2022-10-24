@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { ActionButton } from "../../components/button/Button";
-import ContainerFull from "../../components/container/ContainerFull";
-import ContainerMd from "../../components/container/ContainerMd";
+import Container from "../../../components/container/container";
+
+import { ActionButton } from "../../../components/button/styles";
 
 import { IoCheckmarkCircleSharp, IoCloseCircle } from "react-icons/io5";
 
-import Input from "../../components/input/Input";
+import Input from "../../../components/input/Input";
 
 const CSSCreateProvince = styled.div`
   min-height: 60vh;
@@ -92,7 +92,12 @@ const CreateProvincePage = () => {
     };
     body = JSON.stringify(body);
     try {
-      fetch("http://localhost:3001/province/create", { method: "POST", mode: "cors", body: body, headers: { "Content-type": "application/json; charset=UTF-8" } }).then((send) => {
+      fetch("http://localhost:3001/province/create", {
+        method: "POST",
+        mode: "cors",
+        body: body,
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+      }).then((send) => {
         if (send.status == 201) {
           setCreate(true);
         } else {
@@ -105,19 +110,44 @@ const CreateProvincePage = () => {
   };
 
   return (
-    <ContainerFull>
-      <ContainerMd justify="center" padding="5rem 0rem">
+    <Container full>
+      <Container justify="center" padding="5rem 0rem">
         <CSSCreateProvince>
           <h2>Create Province</h2>
-          <CSSFormCreateProvince onSubmit={handleSubmit} method="POST" action="http://localhost:3001/province/create">
+          <CSSFormCreateProvince
+            onSubmit={handleSubmit}
+            method="POST"
+            action="http://localhost:3001/province/create"
+          >
             <CSSFormArea>
-              <Input id="province-name" name="name" change={changeInput} value={inputs.name} width="100%" placeholder="Name" />
+              <Input
+                id="province-name"
+                name="name"
+                change={changeInput}
+                value={inputs.name}
+                width="100%"
+                placeholder="Name"
+              />
             </CSSFormArea>
             <CSSFormArea>
-              <Input id="province-initials" name="initials" change={changeInput} value={inputs.initials} width="100%" placeholder="Initials" />
+              <Input
+                id="province-initials"
+                name="initials"
+                change={changeInput}
+                value={inputs.initials}
+                width="100%"
+                placeholder="Initials"
+              />
             </CSSFormArea>
             <CSSFormArea>
-              <Input id="province-img-cover" name="img_cover" change={changeInput} value={inputs.img_cover} width="100%" placeholder="Img Cover Link" />
+              <Input
+                id="province-img-cover"
+                name="img_cover"
+                change={changeInput}
+                value={inputs.img_cover}
+                width="100%"
+                placeholder="Img Cover Link"
+              />
             </CSSFormArea>
             <CSSFormArea justify="space-between">
               <ActionButton type="button" invert>
@@ -142,8 +172,8 @@ const CreateProvincePage = () => {
             </CSSFormArea>
           </CSSFormCreateProvince>
         </CSSCreateProvince>
-      </ContainerMd>
-    </ContainerFull>
+      </Container>
+    </Container>
   );
 };
 

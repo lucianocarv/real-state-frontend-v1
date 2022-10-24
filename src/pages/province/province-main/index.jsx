@@ -2,13 +2,12 @@ import React, { useState, useEffect, Fragment } from "react";
 import { useParams } from "react-router-dom";
 import { PuffLoader } from "react-spinners";
 
-import { Name } from "../../components/titles/PrincipalTitle";
-import { ContainerForLoader } from "../../components/loading/Container";
-import ContainerMd from "../../components/container/ContainerMd";
-import ContainerFull from "../../components/container/ContainerFull";
-import Card from "../../components/card/principal/Card";
+import { PrincipalTitle } from "../../../components/titles/Titles";
+import { ContainerForLoader } from "../../../components/loading/Container";
+import Container from "../../../components/container/container";
+import PrincipalCard from "../../../components/card/principal/Principal";
 
-import { ProvincePageStyled } from "./Styles";
+import { ProvincePageStyled } from "./styles";
 
 const ProvincePage = () => {
   const { province } = useParams();
@@ -27,7 +26,7 @@ const ProvincePage = () => {
   }, []);
 
   return (
-    <ContainerFull>
+    <Container full justify="center">
       <ProvincePageStyled>
         {loading ? (
           <ContainerForLoader>
@@ -35,19 +34,26 @@ const ProvincePage = () => {
           </ContainerForLoader>
         ) : (
           <Fragment>
-            <ContainerMd justify="center">
-              <Name>{currentProvince[0].name}</Name>
-            </ContainerMd>
-            <ContainerMd justify="center">
+            <Container justify="center">
+              <PrincipalTitle>{currentProvince[0].name}</PrincipalTitle>
+            </Container>
+            <Container justify="center">
               {cities.map((city) => {
                 let nameParse = String(city.name).toLocaleLowerCase().replace(" ", "-");
-                return <Card key={city._id} title={city.name} link={nameParse} image={city.img_cover} />;
+                return (
+                  <PrincipalCard
+                    key={city._id}
+                    title={city.name}
+                    link={nameParse}
+                    image={city.img_cover}
+                  />
+                );
               })}
-            </ContainerMd>
+            </Container>
           </Fragment>
         )}
       </ProvincePageStyled>
-    </ContainerFull>
+    </Container>
   );
 };
 

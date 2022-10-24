@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Button } from "../button/Button";
-import ContainerMd from "../container/ContainerMd";
+import { Button } from "../button/styles";
+import ContainerMd from "../container/container";
 
 import { globalColor } from "../../Styles";
 

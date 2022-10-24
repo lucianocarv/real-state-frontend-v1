@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ContainerForLoader = styled.span`
+export const LoaderContainer = styled.span`
   width: 50vw;
   position: absolute;
   left: 50%;

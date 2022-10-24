@@ -1,46 +1,42 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { IoHome } from "react-icons/io5";
-import { IoLocationSharp, IoPeople } from "react-icons/io5";
-import { ActionButton } from "../../button/Button";
-
+import { IoLocationSharp, IoPeople, IoHome } from "react-icons/io5";
 import { FaHandshake } from "react-icons/fa";
 
-import { MdFavoriteBorder } from "react-icons/md";
+import { ActionButton } from "../../button/styles";
+import { Card } from "./styles";
 
-import { PropertyCardImageStyled, PropertyCardInfoListStyled, PropertyCardInfoStyled, PropertyCardPriceStyled, PropertyCardStyled, CardInfoLine, PropertyButtons } from "./Styles";
-
-const PropertyCard = (props) => {
+const PropertyCard = ({ link, type, price, community, address, img, company }) => {
   return (
-    <PropertyCardStyled>
-      <PropertyCardInfoStyled>
-        <Link to={props.link}>
-          <PropertyCardPriceStyled>${props.price}</PropertyCardPriceStyled>
+    <Card>
+      <div className="info">
+        <Link to={link}>
+          <p className="info__price">${price}</p>
         </Link>
-        <PropertyCardInfoListStyled>
-          <CardInfoLine>
-            <IoHome /> {props.type}
-          </CardInfoLine>
-          <CardInfoLine>
-            <IoPeople /> {props.community}
-          </CardInfoLine>
-          <CardInfoLine>
-            <IoLocationSharp /> {props.address}
-          </CardInfoLine>
-          <CardInfoLine>
-            <FaHandshake /> {props.company}
-          </CardInfoLine>
-        </PropertyCardInfoListStyled>
-        <PropertyButtons>
+        <ul className="info__list">
+          <li>
+            <IoHome /> {type}
+          </li>
+          <li>
+            <IoPeople /> {community}
+          </li>
+          <li>
+            <IoLocationSharp /> {address}
+          </li>
+          <li>
+            <FaHandshake /> {company}
+          </li>
+        </ul>
+        <div className="info__buttons">
           <ActionButton>Favorite</ActionButton>
-          <Link to={props.link}>
+          <Link to={link}>
             <ActionButton invert>View</ActionButton>
           </Link>
-        </PropertyButtons>
-      </PropertyCardInfoStyled>
-      <PropertyCardImageStyled src={props.img} alt="" />
-    </PropertyCardStyled>
+        </div>
+      </div>
+      <img className="img" src={img} alt="" />
+    </Card>
   );
 };
 
