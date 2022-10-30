@@ -6,10 +6,17 @@ import { FaHandshake } from "react-icons/fa";
 
 import { ActionButton } from "../../button/styles";
 import { Card } from "./styles";
+import { useContext } from "react";
+import { PinContext } from "../../../contexts/PinContext";
 
 const PropertyCard = ({ link, type, price, community, address, img, company, id }) => {
+  const { setCurrentPin } = useContext(PinContext);
+
+  const handleCurrentPin = () => {
+    setCurrentPin(id);
+  };
   return (
-    <Card id={id}>
+    <Card onMouseEnter={handleCurrentPin}>
       <div className="info">
         <Link to={link}>
           <p className="info__price">${price}</p>

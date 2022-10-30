@@ -4,7 +4,7 @@ import { GlobalStyles } from "./Styles";
 
 import Layout from "./layout/Layout";
 import HomePage from "./pages/home";
-import CityPage from "./pages/city";
+import CityPage from "./pages/city/city-main/index";
 import CommunityPage from "./pages/community";
 import View from "./components/view/View";
 import ProvincePage from "./pages/province/province-main/index";

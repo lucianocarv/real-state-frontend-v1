@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { Button } from "../button/styles";
 import ContainerMd from "../container/container";
 
-import { globalColor } from "../../Styles";
+import { globalColor, globalBoxShadow } from "../../Styles";
 
-import { MdClose } from "react-icons/md";
+import { MdClose, MdCreate } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const MenuStyled = styled.div`
@@ -21,10 +21,11 @@ const MenuStyled = styled.div`
 const CloseButtonStyled = styled(Button)`
   font-size: 2rem;
   background-color: transparent;
+  color: ${globalColor};
 `;
 
 const MenuList = styled.ul`
-  padding: 0px 5px;
+  padding: 1rem 0.6rem;
   width: 100%;
   height: auto;
   display: flex;
@@ -34,54 +35,81 @@ const MenuList = styled.ul`
 
 const ListItem = styled.li`
   width: 100%;
-  height: 3rem;
+  height: 2.5rem;
   padding: 0px 10px;
   font-weight: 600;
+  font-size: 25px;
   color: ${globalColor};
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  transition: all 0.3s ease;
-  border-radius: 3px;
-  border: 2px solid ${globalColor};
+  gap: 1rem;
+  border-radius: 5px;
+  box-shadow: ${globalBoxShadow};
+  background-color: #fff;
+  transition: all 0.2s ease;
+
+  p {
+    font-size: 17px;
+  }
 
   &:hover {
-    color: #fff;
-    background-color: ${globalColor};
+    transform: translate(5px);
   }
 `;
 
-const Menu = (props) => {
+const Menu = ({ menuView, handleView }) => {
   return (
-    <MenuStyled width="290px" close={props.close}>
-      <ContainerMd height="4.5rem" justify="flex-end">
-        <CloseButtonStyled onClick={() => props.click()}>
+    <MenuStyled width="250px" close={menuView}>
+      <ContainerMd height="3.5rem" justify="flex-end">
+        <CloseButtonStyled onClick={() => handleView()}>
           <MdClose />
         </CloseButtonStyled>
       </ContainerMd>
       <ContainerMd justify="flex-start">
         <MenuList>
           <Link to="/province/create">
-            <ListItem>Insert Province</ListItem>
+            <ListItem>
+              <MdCreate />
+              <p>Insert Province</p>
+            </ListItem>
+          </Link>
+          <Link to="/city/create">
+            <ListItem>
+              <MdCreate />
+              <p>Insert City</p>
+            </ListItem>
           </Link>
           <Link to="/ab">
-            <ListItem>Apartments</ListItem>
-          </Link>
-          <Link to="/ab">
-            <ListItem>Houses</ListItem>
+            <ListItem>
+              <MdCreate />
+              <p>Apartments</p>
+            </ListItem>
           </Link>
 
           <Link to="/ab">
-            <ListItem>All Cities</ListItem>
+            <ListItem>
+              <MdCreate />
+              <p>Apartments</p>
+            </ListItem>
           </Link>
           <Link to="/ab">
-            <ListItem>Estatistics</ListItem>
+            <ListItem>
+              <MdCreate />
+              <p>Apartments</p>
+            </ListItem>
           </Link>
           <Link to="/ab">
-            <ListItem>Price Comparision</ListItem>
+            <ListItem>
+              <MdCreate />
+              <p>Apartments</p>
+            </ListItem>
           </Link>
           <Link to="/ab">
-            <ListItem>Monst Rented</ListItem>
+            <ListItem>
+              <MdCreate />
+              <p>Apartments</p>
+            </ListItem>
           </Link>
         </MenuList>
       </ContainerMd>

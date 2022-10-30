@@ -6,12 +6,18 @@ import Layout from "./Styles";
 import View from "../components/view/View";
 
 import Container from "../components/container/container";
+import Menu from "../components/menu/Menu";
 const LayoutComponent = () => {
+  const [menuView, setMenuView] = useState(true);
+  function handleView() {
+    setMenuView(!menuView);
+  }
   return (
     <Fragment>
       <Container block full justify="flex-start">
         <Layout>
-          <HeaderComponent />
+          <Menu menuView={menuView} handleView={handleView} />
+          <HeaderComponent menuView={menuView} handleView={handleView} />
           <Outlet />
         </Layout>
         <View />

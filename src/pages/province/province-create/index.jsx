@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Container from "../../../components/container/container";
 
+import { globalBoxShadow } from "../../../Styles";
+
 import { ActionButton } from "../../../components/button/styles";
 
 import { IoCheckmarkCircleSharp, IoCloseCircle } from "react-icons/io5";
@@ -12,6 +14,7 @@ const CSSCreateProvince = styled.div`
   min-height: 60vh;
   max-width: 600px;
   width: 100%;
+  padding-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,7 +48,7 @@ const CSSFormArea = styled.div`
 const CreateStatus = styled.div`
   color: ${(props) => (props.notcreate ? "white" : "#0b846e")};
   width: 100%;
-  height: 50px;
+  height: 2.6rem;
   border-radius: 5px;
   background-color: ${(props) => (props.notcreate ? "red" : "white")};
   border: ${(props) => (props.notcreate ? "transparent" : "2px solid #0b846e")};
@@ -53,7 +56,7 @@ const CreateStatus = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  animation: render 0.5s;
+  animation: render 0.2s;
   svg {
     font-size: 2rem;
   }
@@ -75,6 +78,10 @@ const CreateProvincePage = () => {
     initials: "",
     img_cover: "",
   });
+
+  const clearInputs = () => {
+    setInputs({ name: "", initials: "", img_cover: "" });
+  };
 
   const changeInput = (e) => {
     setInputs({
@@ -102,6 +109,7 @@ const CreateProvincePage = () => {
           setCreate(true);
         } else {
           setCreate(false);
+          console.log(send);
         }
       });
     } catch (error) {
@@ -114,18 +122,13 @@ const CreateProvincePage = () => {
       <Container justify="center" padding="5rem 0rem">
         <CSSCreateProvince>
           <h2>Create Province</h2>
-          <CSSFormCreateProvince
-            onSubmit={handleSubmit}
-            method="POST"
-            action="http://localhost:3001/province/create"
-          >
+          <CSSFormCreateProvince onSubmit={handleSubmit} autoComplete="off">
             <CSSFormArea>
               <Input
                 id="province-name"
                 name="name"
                 change={changeInput}
                 value={inputs.name}
-                width="100%"
                 placeholder="Name"
               />
             </CSSFormArea>
@@ -135,7 +138,6 @@ const CreateProvincePage = () => {
                 name="initials"
                 change={changeInput}
                 value={inputs.initials}
-                width="100%"
                 placeholder="Initials"
               />
             </CSSFormArea>
@@ -145,12 +147,11 @@ const CreateProvincePage = () => {
                 name="img_cover"
                 change={changeInput}
                 value={inputs.img_cover}
-                width="100%"
                 placeholder="Img Cover Link"
               />
             </CSSFormArea>
             <CSSFormArea justify="space-between">
-              <ActionButton type="button" invert>
+              <ActionButton onClick={clearInputs} type="button" invert>
                 Clear Inputs
               </ActionButton>
               <ActionButton type="submit">Create Province</ActionButton>

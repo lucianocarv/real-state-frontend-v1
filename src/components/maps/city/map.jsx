@@ -4,21 +4,22 @@ import { GoogleMap, useJsApiLoader, InfoWindowF } from "@react-google-maps/api";
 import { FaMapMarker } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 import { BoxIcon } from "./styles";
+import { useContext } from "react";
+import { PinContext } from "../../../contexts/PinContext";
+
+import { GOOGLE_MAPS_API_KEY } from "../../../../api";
 
 const Map = ({ center, properties }) => {
-  const { province, city, community } = useParams();
-
+  const { currentPin } = useContext(PinContext);
+  console.log(currentPin);
+  const { province, city } = useParams();
   const { isLoaded, loadError } = useJsApiLoader({
-    googleMapsApiKey: "?",
+    googleMapsApiKey: GOOGLE_MAPS_API_KEY,
   });
 
   if (loadError) {
     return <div>Map cannot be loaded right now, sorry.</div>;
   }
-
-  const scrollToProperty = (elementRef) => {
-    CityList.scrollTo({ top: elementRef.current.offsetTop, behavior: "smooth" });
-  };
 
   return isLoaded ? (
     <GoogleMap
@@ -31,7 +32,7 @@ const Map = ({ center, properties }) => {
       {properties.map((prop) => (
         <InfoWindowF key={prop._id} position={prop.address.coords}>
           <Link to={`/${province}/${city}/property/${prop._id}`}>
-            <BoxIcon>
+            <BoxIcon pin={currentPin == prop._id ? true : false} data-id={prop._id}>
               <FaMapMarker style={{ fontSize: "30px" }} />
             </BoxIcon>
           </Link>

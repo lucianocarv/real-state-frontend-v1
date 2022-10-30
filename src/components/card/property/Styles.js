@@ -10,6 +10,7 @@ export const Card = styled.div`
   overflow: hidden;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   border: 2px solid white;
+  border-radius: 5px;
   transition: all 0.2s ease;
 
   &:hover {

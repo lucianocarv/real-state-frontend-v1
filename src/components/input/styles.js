@@ -7,11 +7,15 @@ export const InputStyled = styled.input.attrs(({ id, value, name }) => ({
   name: name,
 }))`
   min-width: 100px;
-  min-height: 40px;
+  min-height: 2.6rem;
   padding: 0rem 0.5rem;
-  width: ${(props) => (props.width ? props.width : "auto")};
+  width: 100%;
   border: none;
-  border: 2px solid #0b846e;
-  border-radius: 5px;
+  border: 1px solid #0b846e;
+  border-radius: 3px;
   outline: none;
+
+  &:focus {
+    outline: 2px solid #0b846e;
+  }
 `;
