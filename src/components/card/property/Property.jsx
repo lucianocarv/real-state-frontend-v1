@@ -7,9 +7,9 @@ import { FaHandshake } from "react-icons/fa";
 import { ActionButton } from "../../button/styles";
 import { Card } from "./styles";
 
-const PropertyCard = ({ link, type, price, community, address, img, company }) => {
+const PropertyCard = ({ link, type, price, community, address, img, company, id }) => {
   return (
-    <Card>
+    <Card id={id}>
       <div className="info">
         <Link to={link}>
           <p className="info__price">${price}</p>

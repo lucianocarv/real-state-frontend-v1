@@ -20,6 +20,7 @@ function App() {
           <Route path="/:province" element={<ProvincePage />}></Route>
           <Route path="/:province/:city" element={<CityPage />}>
             <Route path="/:province/:city/:community/:property" element={<View />}></Route>
+            <Route exact path="/:province/:city/property/:property" element={<View />}></Route>
           </Route>
           <Route path="/:province/:city/:community" element={<CommunityPage />}></Route>
           <Route path="/province/create" element={<CreateProvincePage />}></Route>

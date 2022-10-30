@@ -4,7 +4,7 @@ import { PuffLoader } from "react-spinners";
 import PrincipalCard from "../../components/card/principal/Principal";
 import Container from "../../components/container/container";
 import Footer from "../../components/footer/Footer";
-import { ContainerForLoader } from "../../components/loading/Container";
+import { LoaderContainer } from "../../components/loading/Container";
 
 import {
   HomePageStyled,
@@ -26,9 +26,9 @@ const HomePage = () => {
   }, []);
 
   return loading ? (
-    <ContainerForLoader>
+    <LoaderContainer>
       <PuffLoader />
-    </ContainerForLoader>
+    </LoaderContainer>
   ) : (
     <Container full justify="center">
       <HomePageStyled>

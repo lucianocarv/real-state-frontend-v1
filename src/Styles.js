@@ -24,4 +24,24 @@ export const GlobalStyles = createGlobalStyle`
       text-decoration: none;
       display: flex
     }
+
+    div.gm-style-iw-d {
+     overflow: visible !important;
+    }
+
+    .gm-style-iw-tc {
+      display: none;
+    }
+
+    .gm-style .gm-style-iw-c {
+    background-color: transparent;
+    box-shadow: none;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+    button.gm-ui-hover-effect {
+    display: none !important; 
+    background-color: transparent !important;
+  }
 `;

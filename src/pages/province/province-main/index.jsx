@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { PuffLoader } from "react-spinners";
 
 import { PrincipalTitle } from "../../../components/titles/Titles";
-import { ContainerForLoader } from "../../../components/loading/Container";
+import { LoaderContainer } from "../../../components/loading/Container";
 import Container from "../../../components/container/container";
 import PrincipalCard from "../../../components/card/principal/Principal";
 
@@ -29,9 +29,9 @@ const ProvincePage = () => {
     <Container full justify="center">
       <ProvincePageStyled>
         {loading ? (
-          <ContainerForLoader>
+          <LoaderContainer>
             <PuffLoader />
-          </ContainerForLoader>
+          </LoaderContainer>
         ) : (
           <Fragment>
             <Container justify="center">
