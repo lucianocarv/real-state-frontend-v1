@@ -45,4 +45,14 @@ export const GlobalStyles = createGlobalStyle`
     display: none !important; 
     background-color: transparent !important;
   }
+
+  
+
+  .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+    color: ${globalColor} !important;
+  }
+
+  .css-md26zr-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: ${globalColor} !important;
+  }
 `;

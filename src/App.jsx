@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GlobalStyles } from "./Styles";
 
@@ -9,6 +9,7 @@ import CommunityPage from "./pages/community";
 import View from "./components/view/View";
 import ProvincePage from "./pages/province/province-main/index";
 import CreateProvincePage from "./pages/province/province-create/index";
+import ListAPropertyPage from "./pages/property/list-a-property";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           </Route>
           <Route path="/:province/:city/:community" element={<CommunityPage />}></Route>
           <Route path="/province/create" element={<CreateProvincePage />}></Route>
+          <Route exact path="/list-a-property" element={<ListAPropertyPage />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

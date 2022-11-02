@@ -62,9 +62,9 @@ const CityPage = () => {
                       key={property._id}
                       type={property.type}
                       community={property.address.community}
-                      price={property.price}
+                      price={property.prices.min + " - " + property.prices.max}
                       address={property.address.street}
-                      company={property.price}
+                      company={property.contact.manager}
                       link={community + "/" + property._id}
                       id={property._id}
                     />

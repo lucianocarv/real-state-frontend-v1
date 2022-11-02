@@ -24,7 +24,9 @@ const HeaderComponent = ({ handleView }) => {
             </Link>
           </Left>
           <Right>
-            <ActionButton>List a Property</ActionButton>
+            <ActionButton>
+              <Link to="/list-a-property">List a Property</Link>
+            </ActionButton>
             <ActionButton>Login</ActionButton>
           </Right>
         </Container>
