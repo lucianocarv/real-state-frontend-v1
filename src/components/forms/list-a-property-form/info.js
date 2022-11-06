@@ -1,5 +1,7 @@
 export const initialValues = {
   type: "",
+  province: "",
+  city: "",
   street: "",
   number: "",
   community: "",

@@ -5,6 +5,18 @@ export const Styles = styled.div`
     padding: 0.5rem 0;
   }
 
+  h5 {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: 14px;
+    margin: 1rem 0;
+
+    & svg {
+      font-size: 25px;
+    }
+  }
+
   #location-section {
     display: flex;
     gap: 1rem;

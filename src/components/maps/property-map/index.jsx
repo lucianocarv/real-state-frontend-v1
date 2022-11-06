@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { GoogleMap, useJsApiLoader, MarkerF } from "@react-google-maps/api";
 import { GOOGLE_MAPS_API_KEY } from "../../../../api";
 
-import { Styles } from "./styles";
-import { TextField } from "@mui/material";
-import { useContext } from "react";
-
 import { CoordsContext } from "../../../contexts/CoordsContext";
+
+import { TextField } from "@mui/material";
+import { Styles } from "./styles";
 
 const MapProperty = () => {
   const { coords, setCoords } = useContext(CoordsContext);

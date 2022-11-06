@@ -1,12 +1,12 @@
 import React, { Fragment, useState } from "react";
 import { Outlet } from "react-router";
 
-import HeaderComponent from "../components/header/Header";
 import Layout from "./Styles";
-import View from "../components/view/View";
+import View from "../components/view/index";
+import Container from "../components/container/default-container/index";
+import HeaderComponent from "../components/header/index";
+import Menu from "../components/menu/default-menu/index";
 
-import Container from "../components/container/container";
-import Menu from "../components/menu/Menu";
 const LayoutComponent = () => {
   const [menuView, setMenuView] = useState(true);
   function handleView() {

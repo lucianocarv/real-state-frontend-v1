@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { ActionButton } from "../button/styles";
 
+import { ActionButton } from "../button/button-default/styles";
 import { ViewStyled } from "./styles";
 
 const View = () => {

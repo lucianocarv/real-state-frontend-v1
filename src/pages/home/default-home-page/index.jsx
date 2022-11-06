@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { PuffLoader } from "react-spinners";
 
-import PrincipalCard from "../../components/card/principal/Principal";
-import Container from "../../components/container/container";
-import Footer from "../../components/footer/Footer";
-import { LoaderContainer } from "../../components/loading/Container";
+import PrincipalCard from "../../../components/card/principal-card/index";
+import Container from "../../../components/container/default-container/index";
+import Footer from "../../../components/footer/index";
+import { LoaderContainer } from "../../../components/loading/default-loading/index";
 
 import {
   HomePageStyled,
   HomePageTitleStyled,
   HomePageTitleAnimationStyled,
   HomePageCitiesSectionStyled,
-} from "./Styles";
+} from "./styles";
 
 const HomePage = () => {
   const [provinces, setProvinces] = useState([]);

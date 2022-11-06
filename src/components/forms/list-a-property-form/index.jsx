@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
-import TextField from "@mui/material/TextField";
-import { Button, FormControlLabel, MenuItem } from "@mui/material";
-import Checkbox from "@mui/material/Checkbox";
 import InputMask from "react-input-mask";
+import { initialValues, types, utilitiesInluded, provinces } from "./info";
 
-import { Styles } from "./styles";
-import { useContext } from "react";
+import { Button, FormControlLabel, MenuItem } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import Checkbox from "@mui/material/Checkbox";
+
 import { CoordsContext } from "../../../contexts/CoordsContext";
 
-import { initialValues, types, utilitiesInluded, provinces } from "./info";
-import { useEffect } from "react";
+import { globalColor } from "../../../styles";
+import { AiOutlineForm } from "react-icons/ai";
+import { Styles } from "./styles";
 
 const onlyNumbers = (str) => str.replace(/[^0-9]/g, "");
 
@@ -18,11 +19,12 @@ const FormListAProperty = () => {
   const { coords } = useContext(CoordsContext);
   const [values, setValues] = useState(initialValues);
   const [utilities, setUtilities] = useState([]);
-
-  const [province, setProvince] = useState("AB");
+  const [province, setProvince] = useState("");
   const [cities, setCities] = useState([]);
   const [city, setCity] = useState("");
   const [communities, setCommunities] = useState([]);
+
+  const [btDisabled, setBtDisabled] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:3001/${province.toLowerCase()}`)
@@ -70,13 +72,13 @@ const FormListAProperty = () => {
     e.preventDefault();
     let body = {
       address: {
-        street: values.street,
-        number: values.number,
-        communityID: values.community.split("$$$")[0],
-        community: values.community.split("$$$")[1],
+        street: values.street.length > 2 ? values.street : undefined,
+        number: values.number.length > 0 ? values.number : undefined,
+        communityID: values.community != "" ? values.community.split("$$$")[0] : undefined,
+        community: values.community != "" ? values.community.split("$$$")[1] : undefined,
         coords: coords,
       },
-      type: values.type,
+      type: values.type != "" ? values.type : undefined,
       prices: {
         min: Number(onlyNumbers(values.minprice)),
         max: Number(onlyNumbers(values.maxprice)),
@@ -85,6 +87,7 @@ const FormListAProperty = () => {
       contact: {
         manager: values.manager,
         website: values.website,
+        phone: values.phone,
       },
       img_cover: values.img_cover,
     };
@@ -94,15 +97,20 @@ const FormListAProperty = () => {
       mode: "cors",
       body: body,
       headers: { "Content-type": "application/json; charset=UTF-8" },
-    }).then((resp) => {
-      console.log(resp);
-    });
-    console.log(body);
+    })
+      .then((resp) => {
+        return resp.json();
+      })
+      .then((resp) => console.log(resp));
   }
 
   return (
     <Styles>
-      <form action="">
+      <form>
+        <h5>
+          <AiOutlineForm />
+          Property
+        </h5>
         <div id="location-section" className="form-section">
           <TextField
             name="province"
@@ -114,13 +122,12 @@ const FormListAProperty = () => {
             size="small"
             fullWidth
             onChange={(e) => setProvince(e.target.value)}
-          >
-            {provinces.map((initials) => (
+            children={provinces.map((initials) => (
               <MenuItem key={initials + "22"} value={initials}>
                 {initials}
               </MenuItem>
             ))}
-          </TextField>
+          ></TextField>
           <TextField
             name="city"
             required
@@ -131,13 +138,12 @@ const FormListAProperty = () => {
             size="small"
             fullWidth
             onChange={(e) => setCity(e.target.value)}
-          >
-            {cities.map((city) => (
+            children={cities.map((city) => (
               <MenuItem key={city._id} value={city.name}>
                 {city.name}
               </MenuItem>
             ))}
-          </TextField>
+          ></TextField>
         </div>
         <div className="form-section">
           <TextField
@@ -148,17 +154,16 @@ const FormListAProperty = () => {
             label="Type"
             variant="outlined"
             size="small"
-            value={values.type}
             onChange={handleChange}
             fullWidth
             style={{ width: "50%" }}
-          >
-            {types.map((type) => (
+            SelectProps={{ defaultValue: "" }}
+            children={types.map((type) => (
               <MenuItem key={type} value={type}>
                 {type}
               </MenuItem>
             ))}
-          </TextField>
+          ></TextField>
         </div>
         <div id="address-section" className="form-section">
           <TextField
@@ -197,17 +202,19 @@ const FormListAProperty = () => {
             variant="outlined"
             size="small"
             fullWidth
+            SelectProps={{ defaultValue: "", children: true }}
             value={values.community}
             onChange={handleChange}
-          >
-            {communities
-              ? communities.map((community) => (
-                  <MenuItem key={community._id} value={community._id + "$$$" + community.name}>
-                    {community.name}
-                  </MenuItem>
-                ))
-              : ""}
-          </TextField>
+            children={
+              communities
+                ? communities.map((community) => (
+                    <MenuItem key={community._id} value={community._id + "$$$" + community.name}>
+                      {community.name}
+                    </MenuItem>
+                  ))
+                : ""
+            }
+          ></TextField>
         </div>
         <div id="price-section" className="form-section">
           <InputMask
@@ -267,14 +274,17 @@ const FormListAProperty = () => {
           />
         </div>
         <div className="form-section">
-          <p>Utilities Included</p>
+          <h5>
+            <AiOutlineForm />
+            Utilities Included
+          </h5>
           <div>
             {utilitiesInluded.map((utility) => {
               return (
                 <FormControlLabel
                   key={utility}
                   name={utility.toLowerCase()}
-                  control={<Checkbox />}
+                  control={<Checkbox style={{ color: globalColor }} />}
                   label={utility}
                   value={utility}
                   onChange={handleChangeCheckboxes}
@@ -284,7 +294,10 @@ const FormListAProperty = () => {
           </div>
         </div>
         <div id="contact-section" className="form-section">
-          <p>Contact</p>
+          <h5>
+            <AiOutlineForm />
+            Contact
+          </h5>
           <TextField
             name="manager"
             required
@@ -310,7 +323,7 @@ const FormListAProperty = () => {
             onChange={handleChange}
           />
           <InputMask
-            mask={"(99) 9999-9999"}
+            mask={"(999) 999-9999"}
             maskChar={null}
             value={values.phone}
             onChange={handleChange}
@@ -333,7 +346,7 @@ const FormListAProperty = () => {
         <div id="buttons-section" className="form-section">
           <Button
             fullWidth
-            color="success"
+            style={{ color: globalColor, borderColor: globalColor }}
             type="button"
             variant="outlined"
             label="Send"
@@ -343,8 +356,9 @@ const FormListAProperty = () => {
           </Button>
           <Button
             fullWidth
-            color="success"
+            style={btDisabled ? { backgroundColor: "white" } : { backgroundColor: globalColor }}
             type="button"
+            disabled={btDisabled}
             variant="contained"
             label="Send"
             onClick={handleSubmit}

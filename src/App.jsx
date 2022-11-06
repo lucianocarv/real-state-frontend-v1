@@ -2,14 +2,13 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GlobalStyles } from "./Styles";
 
-import Layout from "./layout/Layout";
-import HomePage from "./pages/home";
-import CityPage from "./pages/city/city-main/index";
-import CommunityPage from "./pages/community";
-import View from "./components/view/View";
-import ProvincePage from "./pages/province/province-main/index";
-import CreateProvincePage from "./pages/province/province-create/index";
-import ListAPropertyPage from "./pages/property/list-a-property";
+import Layout from "./layout/index";
+import View from "./components/view/index";
+
+import HomePage from "./pages/home/default-home-page/index";
+import CityPage from "./pages/city/default-city-page/index";
+import ProvincePage from "./pages/province/default-province-page/index";
+import ListAPropertyPage from "./pages/property/list-a-property-page/index";
 
 function App() {
   return (
@@ -23,8 +22,6 @@ function App() {
             <Route path="/:province/:city/:community/:property" element={<View />}></Route>
             <Route exact path="/:province/:city/property/:property" element={<View />}></Route>
           </Route>
-          <Route path="/:province/:city/:community" element={<CommunityPage />}></Route>
-          <Route path="/province/create" element={<CreateProvincePage />}></Route>
           <Route exact path="/list-a-property" element={<ListAPropertyPage />}></Route>
         </Route>
       </Routes>

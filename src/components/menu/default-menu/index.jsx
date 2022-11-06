@@ -1,12 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import { Button } from "../button/styles";
-import ContainerMd from "../container/container";
-
-import { globalColor, globalBoxShadow } from "../../Styles";
-
-import { MdClose, MdCreate } from "react-icons/md";
 import { Link } from "react-router-dom";
+
+import Container from "../../container/default-container/index";
+import { Button } from "../../button/button-default/styles";
+import { globalColor, globalBoxShadow } from "../../../styles";
+
+import {
+  MdClose,
+  MdFavorite,
+  MdInsertChart,
+  MdCollections,
+  MdPublic,
+  MdSettings,
+} from "react-icons/md";
 
 const MenuStyled = styled.div`
   position: absolute;
@@ -61,58 +68,46 @@ const ListItem = styled.li`
 const Menu = ({ menuView, handleView }) => {
   return (
     <MenuStyled width="250px" close={menuView}>
-      <ContainerMd height="3.5rem" justify="flex-end">
+      <Container height="3.5rem" justify="flex-end">
         <CloseButtonStyled onClick={() => handleView()}>
           <MdClose />
         </CloseButtonStyled>
-      </ContainerMd>
-      <ContainerMd justify="flex-start">
+      </Container>
+      <Container justify="flex-start">
         <MenuList>
-          <Link to="/province/create">
+          <Link to="">
             <ListItem>
-              <MdCreate />
-              <p>Insert Province</p>
+              <MdSettings />
+              <p>Manage</p>
             </ListItem>
           </Link>
-          <Link to="/city/create">
+          <Link to="">
             <ListItem>
-              <MdCreate />
-              <p>Insert City</p>
+              <MdFavorite />
+              <p>Favorites</p>
             </ListItem>
           </Link>
           <Link to="/ab">
             <ListItem>
-              <MdCreate />
-              <p>Apartments</p>
+              <MdCollections />
+              <p>Blog</p>
             </ListItem>
           </Link>
 
           <Link to="/ab">
             <ListItem>
-              <MdCreate />
-              <p>Apartments</p>
+              <MdPublic />
+              <p>Information</p>
             </ListItem>
           </Link>
           <Link to="/ab">
             <ListItem>
-              <MdCreate />
-              <p>Apartments</p>
-            </ListItem>
-          </Link>
-          <Link to="/ab">
-            <ListItem>
-              <MdCreate />
-              <p>Apartments</p>
-            </ListItem>
-          </Link>
-          <Link to="/ab">
-            <ListItem>
-              <MdCreate />
-              <p>Apartments</p>
+              <MdInsertChart />
+              <p>Graphics</p>
             </ListItem>
           </Link>
         </MenuList>
-      </ContainerMd>
+      </Container>
     </MenuStyled>
   );
 };

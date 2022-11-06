@@ -1,11 +1,12 @@
 import React from "react";
 
-import { Styles } from "./styles";
+import Container from "../../../components/container/default-container/index";
+import FormListAProperty from "../../../components/forms/list-a-property-form/index";
+import MapProperty from "../../../components/maps/property-map/index";
 
-import Container from "../../../components/container/container";
-import FormListAProperty from "../../../components/forms/list-a-property/ListAProperty";
-import MapProperty from "../../../components/maps/property/map";
 import { CoordsContextProvider } from "../../../contexts/CoordsContext";
+
+import { Styles } from "./styles";
 
 const ListAPropertyPage = () => {
   return (

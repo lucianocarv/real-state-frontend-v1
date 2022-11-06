@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { IoLocationSharp, IoPeople, IoHome } from "react-icons/io5";
 import { FaHandshake } from "react-icons/fa";
 
-import { ActionButton } from "../../button/styles";
+import { ActionButton } from "../../button/button-default/styles";
 import { Card } from "./styles";
 import { useContext } from "react";
 import { PinContext } from "../../../contexts/PinContext";

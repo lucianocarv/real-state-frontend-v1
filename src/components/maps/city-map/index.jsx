@@ -1,17 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { GoogleMap, useJsApiLoader, InfoWindowF } from "@react-google-maps/api";
-
-import { FaMapMarker } from "react-icons/fa";
+import { GOOGLE_MAPS_API_KEY } from "../../../../api";
 import { Link, useParams } from "react-router-dom";
-import { BoxIcon } from "./styles";
-import { useContext } from "react";
+
 import { PinContext } from "../../../contexts/PinContext";
 
-import { GOOGLE_MAPS_API_KEY } from "../../../../api";
+import { FaMapMarker } from "react-icons/fa";
+import { BoxIcon } from "./styles";
 
 const Map = ({ center, properties }) => {
   const { currentPin } = useContext(PinContext);
-  console.log(currentPin);
   const { province, city } = useParams();
   const { isLoaded, loadError } = useJsApiLoader({
     googleMapsApiKey: GOOGLE_MAPS_API_KEY,
