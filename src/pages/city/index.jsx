@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Outlet, useParams } from "react-router-dom";
 
-import Container from "../../../components/container/default-container/index";
-import PropertyCard from "../../../components/card/property-card/index";
-import { LoaderContainer } from "../../../components/loading/default-loading/index";
-import Map from "../../../components/maps/city-map/index";
+import { Container } from "../../components/container/index";
+import PropertyCard from "../../components/card/property-card/index";
+import { LoaderContainer } from "../../components/loading/index";
+import Map from "../../components/maps/city-map/index";
 
-import { PinContext } from "../../../contexts/PinContext";
+import { PinContext } from "../../contexts/PinContext";
 
 import { PuffLoader } from "react-spinners";
 import { BsEmojiFrown } from "react-icons/bs";
@@ -56,7 +56,6 @@ const CityPage = () => {
                   let community = String(property.address.community)
                     .toLocaleLowerCase()
                     .replace(" ", "-");
-
                   return (
                     <PropertyCard
                       img={property.img_cover}
@@ -65,7 +64,7 @@ const CityPage = () => {
                       community={property.address.community}
                       price={property.prices.min + "-" + property.prices.max}
                       address={property.address.street}
-                      company={property.contact.manager}
+                      manager={property.contact.manager}
                       link={community + "/" + property._id}
                       id={property._id}
                     />

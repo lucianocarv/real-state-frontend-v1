@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { PuffLoader } from "react-spinners";
 
-import PrincipalCard from "../../../components/card/principal-card/index";
-import Container from "../../../components/container/default-container/index";
-import Footer from "../../../components/footer/index";
-import { LoaderContainer } from "../../../components/loading/default-loading/index";
+import PrincipalCard from "../../components/card/principal-card/index";
+import { Container } from "../../components/container/index";
+import Footer from "../../components/footer/index";
+import { LoaderContainer } from "../../components/loading/index";
 
 import {
   HomePageStyled,

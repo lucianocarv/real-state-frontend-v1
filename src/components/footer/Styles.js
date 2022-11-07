@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-export const FooterFullContainerStyled = styled.div`
+export const Styles = styled.div`
   width: 100%;
   min-height: 20rem;
   background-color: #212121;
   display: flex;
   justify-content: center;
 
-  .footer {
+  footer {
     max-width: 1240px;
     width: 100%;
     height: 100%;

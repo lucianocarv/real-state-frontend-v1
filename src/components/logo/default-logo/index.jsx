@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 
 import { WordStyled } from "./styles";
 
-const Logo = () => {
+export const Logo = () => {
   return (
     <Fragment>
       <WordStyled first>real</WordStyled>
@@ -10,5 +10,3 @@ const Logo = () => {
     </Fragment>
   );
 };
-
-export default Logo;

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const LoaderContainer = styled.span`
-  width: 50vw;
   position: absolute;
+  width: 100%;
   left: 50%;
   top: 50%;
   transform: translate(-50%, 50%);

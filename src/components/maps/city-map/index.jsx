@@ -16,7 +16,7 @@ const Map = ({ center, properties }) => {
   });
 
   if (loadError) {
-    return <div>Map cannot be loaded right now, sorry.</div>;
+    return <div>Map cannot be loaded right now, sorry. Try again!</div>;
   }
 
   return isLoaded ? (

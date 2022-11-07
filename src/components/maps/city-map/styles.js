@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
+import { Styles } from "../../../styles";
+
 export const BoxIcon = styled.span`
-  transition: all 0.4s ease;
-  color: ${(props) => (props.pin ? "#0b846e" : "#0b846e")};
-  filter: ${(props) => (props.pin ? "contrast(10)" : "")};
-  animation: ${(props) => (props.pin ? "pin-animation 1s ease" : "")};
+  transition: ${Styles.primaryTransition};
+  color: ${Styles.primaryColor};
+  filter: ${(props) => (props.pin ? "contrast(10)" : "none")};
+  animation: ${(props) => (props.pin ? "pin-animation 1s ease" : "none")};
 
   @keyframes pin-animation {
     0% {
@@ -24,15 +26,7 @@ export const BoxIcon = styled.span`
     }
   }
 
-  path {
-    transition: inherit;
-  }
-
-  &:hover path {
-    filter: ${(props) => (props.pin ? "contrast(20)" : "contrast(20)")};
-  }
-
   &:hover {
-    transform: translateY(-5px) scale(1.2);
+    transform: translateY(-5px) scale(1.1);
   }
 `;

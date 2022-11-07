@@ -5,9 +5,9 @@ import { GlobalStyles } from "./Styles";
 import Layout from "./layout/index";
 import View from "./components/view/index";
 
-import HomePage from "./pages/home/default-home-page/index";
-import CityPage from "./pages/city/default-city-page/index";
-import ProvincePage from "./pages/province/default-province-page/index";
+import HomePage from "./pages/home/index";
+import CityPage from "./pages/city/index";
+import ProvincePage from "./pages/province/index";
 import ListAPropertyPage from "./pages/property/list-a-property-page/index";
 
 function App() {

@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { FooterFullContainerStyled } from "./styles";
-
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+
+import { Styles } from "./styles";
 
 const Footer = () => {
   return (
-    <FooterFullContainerStyled>
-      <footer className="footer">
+    <Styles>
+      <footer>
         <section>
           <h2>POPULAR SEARCHES</h2>
           <ul>
@@ -52,7 +52,7 @@ const Footer = () => {
           </ul>
         </section>
       </footer>
-    </FooterFullContainerStyled>
+    </Styles>
   );
 };
 

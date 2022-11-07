@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 
-import { ActionButton } from "../button/button-default/styles";
+import { Button } from "../button/styles";
 import { ViewStyled } from "./styles";
 
 const View = () => {
@@ -12,10 +12,10 @@ const View = () => {
       <div className="view">
         <header className="view__header">
           <Link to={`/${province}/${city}`}>
-            <ActionButton invert>Favorite</ActionButton>
+            <Button invert>Favorite</Button>
           </Link>
           <Link to={`/${province}/${city}`}>
-            <ActionButton>Close</ActionButton>
+            <Button>Close</Button>
           </Link>
         </header>
       </div>

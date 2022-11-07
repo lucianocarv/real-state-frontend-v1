@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Container from "../container/default-container/index";
-import { ActionButton } from "../button/button-default/styles";
-import Logo from "../logo/default-logo/index";
+import { Container } from "../container/index";
+import { Button } from "../button/styles";
+import { Logo } from "../logo/default-logo/index";
 
 import { Header, Left, Right, Hamburguer } from "./styles";
 import { CgMenu } from "react-icons/cg";
@@ -22,9 +22,9 @@ const HeaderComponent = ({ handleView }) => {
             </Link>
           </Left>
           <Right>
-            <ActionButton>
+            <Button>
               <Link to="/list-a-property">List a Property</Link>
-            </ActionButton>
+            </Button>
           </Right>
         </Container>
       </Header>

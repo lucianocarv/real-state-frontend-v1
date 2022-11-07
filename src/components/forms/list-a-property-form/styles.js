@@ -48,6 +48,7 @@ export const Styles = styled.div`
 
   #buttons-section {
     display: flex;
+    justify-content: space-between;
     gap: 1rem;
   }
 

@@ -1,30 +1,30 @@
 import React, { useState, useContext, useEffect } from "react";
-
 import InputMask from "react-input-mask";
-import { initialValues, types, utilitiesInluded, provinces } from "./info";
+import { CoordsContext } from "../../../contexts/CoordsContext";
 
-import { Button, FormControlLabel, MenuItem } from "@mui/material";
+import { initialValues, types, utilitiesInluded, provinces, onlyNumbers } from "./supplements";
+
+import { Button } from "../../button/styles";
+
+import { FormControlLabel, MenuItem, AlertTitle } from "@mui/material";
+import Alert from "@mui/material/Alert";
 import TextField from "@mui/material/TextField";
 import Checkbox from "@mui/material/Checkbox";
-
-import { CoordsContext } from "../../../contexts/CoordsContext";
 
 import { globalColor } from "../../../styles";
 import { AiOutlineForm } from "react-icons/ai";
 import { Styles } from "./styles";
-
-const onlyNumbers = (str) => str.replace(/[^0-9]/g, "");
+import Map from "../../maps/property-map";
 
 const FormListAProperty = () => {
-  const { coords } = useContext(CoordsContext);
+  const { coords, setCoords } = useContext(CoordsContext);
   const [values, setValues] = useState(initialValues);
   const [utilities, setUtilities] = useState([]);
   const [province, setProvince] = useState("");
   const [cities, setCities] = useState([]);
   const [city, setCity] = useState("");
   const [communities, setCommunities] = useState([]);
-
-  const [btDisabled, setBtDisabled] = useState(false);
+  const [respStatus, setRespStatus] = useState({});
 
   useEffect(() => {
     fetch(`http://localhost:3001/${province.toLowerCase()}`)
@@ -34,19 +34,19 @@ const FormListAProperty = () => {
       .then((data) => {
         setCities(data[0].cities);
       });
-
     try {
       fetch(`http://localhost:3001/${province.toLowerCase()}/${city.toLowerCase()}`)
         .then((resp) => {
           return resp.json();
         })
-        .then((data) => {
-          console.log(data);
-          setCommunities(data[0].communities);
-          console.log(data[0]);
+        .then((city) => {
+          console.log(city);
+          setCommunities(city[0].communities);
+          setCoords({ lat: city[0].coords.lat, lng: city[0].coords.lng });
+          console.log(city[0]);
         });
     } catch (error) {
-      console.log("Nao tem cidade ainda");
+      console.log(error.message);
     }
   }, [province, city]);
 
@@ -57,6 +57,7 @@ const FormListAProperty = () => {
   function clearForm() {
     setValues(initialValues);
     setUtilities([]);
+    setRespStatus(false);
   }
 
   function handleChangeCheckboxes(e) {
@@ -91,6 +92,7 @@ const FormListAProperty = () => {
       },
       img_cover: values.img_cover,
     };
+    console.log(body);
     body = JSON.stringify(body);
     fetch("http://localhost:3001/province/city/community/inserproperty", {
       method: "POST",
@@ -101,7 +103,10 @@ const FormListAProperty = () => {
       .then((resp) => {
         return resp.json();
       })
-      .then((resp) => console.log(resp));
+      .then((resp) => {
+        setRespStatus(resp.name);
+        console.log(resp);
+      });
   }
 
   return (
@@ -343,30 +348,29 @@ const FormListAProperty = () => {
             )}
           </InputMask>
         </div>
+        <div className="form-section">
+          <Map />
+        </div>
         <div id="buttons-section" className="form-section">
-          <Button
-            fullWidth
-            style={{ color: globalColor, borderColor: globalColor }}
-            type="button"
-            variant="outlined"
-            label="Send"
-            onClick={clearForm}
-          >
+          <Button invert onClick={clearForm}>
             Clear Form
           </Button>
-          <Button
-            fullWidth
-            style={btDisabled ? { backgroundColor: "white" } : { backgroundColor: globalColor }}
-            type="button"
-            disabled={btDisabled}
-            variant="contained"
-            label="Send"
-            onClick={handleSubmit}
-          >
-            List A Property
-          </Button>
+          <Button onClick={handleSubmit}>Create property</Button>
         </div>
       </form>
+      {respStatus === "ValidationError" ? (
+        <Alert severity="error">
+          <AlertTitle>Não foi possível inserir a propriedade!</AlertTitle>Campos obrigatórios não
+          foram preenchidos! Por favor, revise o formulário e tente novamente!
+        </Alert>
+      ) : respStatus === "success" ? (
+        <Alert severity="success">
+          <AlertTitle>Success</AlertTitle>
+          The property has been created successfully!
+        </Alert>
+      ) : (
+        ""
+      )}
     </Styles>
   );
 };

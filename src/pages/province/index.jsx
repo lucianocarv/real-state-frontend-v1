@@ -2,10 +2,10 @@ import React, { useState, useEffect, Fragment } from "react";
 import { useParams } from "react-router-dom";
 import { PuffLoader } from "react-spinners";
 
-import { PrincipalTitle } from "../../../components/titles/default-titles/index";
-import { LoaderContainer } from "../../../components/loading/default-loading/index";
-import Container from "../../../components/container/default-container/index";
-import PrincipalCard from "../../../components/card/principal-card/index";
+import { PrincipalTitle } from "../../components/titles/index";
+import { LoaderContainer } from "../../components/loading/index";
+import { Container } from "../../components/container/index";
+import PrincipalCard from "../../components/card/principal-card/index";
 
 import { ProvincePageStyled } from "./styles";
 

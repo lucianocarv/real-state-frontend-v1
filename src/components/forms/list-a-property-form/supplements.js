@@ -35,3 +35,5 @@ export const types = [
 export const utilitiesInluded = ["Heat", "Water", "Eletricity", "Internet", "Television"];
 
 export const provinces = ["AB", "BC", "SK", "ON"];
+
+export const onlyNumbers = (str) => str.replace(/[^0-9]/g, "");

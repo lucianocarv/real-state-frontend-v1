@@ -1,9 +1,7 @@
 import React from "react";
 
-import Container from "../../../components/container/default-container/index";
+import { Container } from "../../../components/container/index";
 import FormListAProperty from "../../../components/forms/list-a-property-form/index";
-import MapProperty from "../../../components/maps/property-map/index";
-
 import { CoordsContextProvider } from "../../../contexts/CoordsContext";
 
 import { Styles } from "./styles";
@@ -13,15 +11,10 @@ const ListAPropertyPage = () => {
     <CoordsContextProvider>
       <Container full justify="center">
         <Container padding="2rem 0rem">
+          <h1>List A Property</h1>
           <Styles>
-            <h1>List A Property</h1>
             <div className="sections">
-              <div className="left">
-                <FormListAProperty />
-              </div>
-              <div className="right">
-                <MapProperty />
-              </div>
+              <FormListAProperty />
             </div>
           </Styles>
         </Container>

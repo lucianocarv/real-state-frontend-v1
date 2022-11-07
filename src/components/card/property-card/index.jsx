@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+
+import { PinContext } from "../../../contexts/PinContext";
 
 import { IoLocationSharp, IoPeople, IoHome } from "react-icons/io5";
 import { FaHandshake } from "react-icons/fa";
+import { Button } from "../../button/styles";
 
-import { ActionButton } from "../../button/button-default/styles";
 import { Card } from "./styles";
-import { useContext } from "react";
-import { PinContext } from "../../../contexts/PinContext";
 
-const PropertyCard = ({ link, type, price, community, address, img, company, id }) => {
+const PropertyCard = ({ link, type, price, community, address, img, manager, id }) => {
   const { setCurrentPin } = useContext(PinContext);
 
   const handleCurrentPin = () => {
@@ -32,17 +32,17 @@ const PropertyCard = ({ link, type, price, community, address, img, company, id 
             <IoLocationSharp /> {address}
           </li>
           <li>
-            <FaHandshake /> {company}
+            <FaHandshake /> {manager}
           </li>
         </ul>
         <div className="info__buttons">
-          <ActionButton>Favorite</ActionButton>
+          <Button>Favorite</Button>
           <Link to={link}>
-            <ActionButton invert>View</ActionButton>
+            <Button invert>View</Button>
           </Link>
         </div>
       </div>
-      <img className="img" src={img} alt="" />
+      <img className="img" src={img} alt={address + " / " + community} />
     </Card>
   );
 };

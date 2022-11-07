@@ -3,9 +3,9 @@ import { Outlet } from "react-router";
 
 import Layout from "./Styles";
 import View from "../components/view/index";
-import Container from "../components/container/default-container/index";
+import { Container } from "../components/container/index";
 import HeaderComponent from "../components/header/index";
-import Menu from "../components/menu/default-menu/index";
+import Menu from "../components/menu/index";
 
 const LayoutComponent = () => {
   const [menuView, setMenuView] = useState(true);
