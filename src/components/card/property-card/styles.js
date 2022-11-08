@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-  padding: 0.5rem;
   max-width: 600px;
   height: 210px;
   display: flex;
@@ -9,12 +8,12 @@ export const Card = styled.div`
   justify-content: flex-start;
   overflow: hidden;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-  border: 2px solid white;
-  border-radius: 5px;
+  border: 1px solid white;
+  border-radius: 8px;
   transition: all 0.2s ease;
 
   &:hover {
-    border: 2px solid #0b846e;
+    border: 1px solid #0b846e;
   }
 
   .info {
@@ -64,9 +63,14 @@ export const Card = styled.div`
   }
 
   .img {
-    max-width: 250px;
-    max-inline-size: 50%;
-    block-size: auto;
-    object-fit: contain;
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+    width: 100%;
+    img {
+      max-inline-size: 280px;
+      aspect-ratio: 16/10;
+      border-radius: 0px 8px 8px 0px;
+    }
   }
 `;

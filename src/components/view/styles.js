@@ -20,18 +20,6 @@ export const ViewStyled = styled.div`
     z-index: 5;
     border-radius: 10px;
 
-    animation: surge 0.2s;
-
-    @keyframes surge {
-      0% {
-        height: 0;
-        width: 50vw;
-      }
-      100% {
-        height: 90vh;
-        width: 80vw;
-      }
-    }
     &__header {
       min-height: 2rem;
       padding: 0.5rem;

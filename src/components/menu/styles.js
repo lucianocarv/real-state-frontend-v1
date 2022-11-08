@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Styles } from "../../styles";
+import { AppStyles } from "../../styles";
 
 export const MStyles = styled.div`
   position: absolute;
@@ -15,7 +15,7 @@ export const MStyles = styled.div`
     padding: 1rem;
     font-size: 2rem;
     background-color: transparent;
-    color: ${Styles.primaryColor};
+    color: ${AppStyles.primaryColor};
     border: none;
     outline: none;
     cursor: pointer;
@@ -35,13 +35,13 @@ export const MStyles = styled.div`
       padding: 0px 10px;
       font-weight: 600;
       font-size: 25px;
-      color: ${Styles.primaryColor};
+      color: ${AppStyles.primaryColor};
       display: flex;
       align-items: center;
       justify-content: flex-start;
       gap: 1rem;
       border-radius: 5px;
-      box-shadow: ${Styles.primaryBoxShadow};
+      box-shadow: ${AppStyles.primaryBoxShadow};
       background-color: #fff;
       transition: all 0.2s ease;
 

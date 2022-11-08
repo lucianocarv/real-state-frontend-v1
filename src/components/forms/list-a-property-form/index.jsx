@@ -27,7 +27,7 @@ const FormListAProperty = () => {
   const [respStatus, setRespStatus] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:3001/${province.toLowerCase()}`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/${province.toLowerCase()}`)
       .then((resp) => {
         return resp.json();
       })
@@ -94,7 +94,7 @@ const FormListAProperty = () => {
     };
     console.log(body);
     body = JSON.stringify(body);
-    fetch("http://localhost:3001/province/city/community/inserproperty", {
+    fetch("http://localhost:3001/province/city/community/create", {
       method: "POST",
       mode: "cors",
       body: body,

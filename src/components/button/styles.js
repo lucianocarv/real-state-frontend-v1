@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Styles } from "../../styles";
+import { AppStyles } from "../../styles";
 
 export const Button = styled.button`
   min-height: 2.5rem;
@@ -16,21 +16,23 @@ export const Button = styled.button`
   border-radius: 3px;
   outline: none;
   cursor: pointer;
-  background-color: ${(props) => (props.invert ? Styles.secondaryColor : Styles.primaryColor)};
-  color: ${(props) => (props.invert ? Styles.primaryColor : Styles.secondaryColor)};
-  border: 2px solid ${Styles.primaryColor};
-  transition: ${Styles.primaryTransition};
+  background-color: ${(props) =>
+    props.invert ? AppStyles.secondaryColor : AppStyles.primaryColor};
+  color: ${(props) => (props.invert ? AppStyles.primaryColor : AppStyles.secondaryColor)};
+  border: 2px solid ${AppStyles.primaryColor};
+  transition: ${AppStyles.primaryTransition};
 
   &:hover {
-    color: ${(props) => (props.invert ? Styles.secondaryColor : Styles.primaryColor)};
-    background-color: ${(props) => (props.invert ? Styles.primaryColor : Styles.secondaryColor)};
-    border: 2px solid ${Styles.primaryColor};
+    color: ${(props) => (props.invert ? AppStyles.secondaryColor : AppStyles.primaryColor)};
+    background-color: ${(props) =>
+      props.invert ? AppStyles.primaryColor : AppStyles.secondaryColor};
+    border: 2px solid ${AppStyles.primaryColor};
   }
 
   a {
-    color: ${Styles.secondaryColor};
+    color: ${AppStyles.secondaryColor};
   }
   &:hover a {
-    color: ${Styles.primaryColor};
+    color: ${AppStyles.primaryColor};
   }
 `;

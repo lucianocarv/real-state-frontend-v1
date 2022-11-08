@@ -15,7 +15,7 @@ const ProvincePage = () => {
   const [cities, setCities] = useState([{}]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch(`http://localhost:3001/${province}`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/${province}`)
       .then((data) => data.json())
       .then((data) => {
         setCurrentProvince(data);

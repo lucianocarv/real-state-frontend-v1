@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-import { Styles } from "../../../styles";
+import { AppStyles } from "../../../styles";
 
 export const BoxIcon = styled.span`
-  transition: ${Styles.primaryTransition};
-  color: ${Styles.primaryColor};
+  transition: ${AppStyles.primaryTransition};
+  color: ${AppStyles.primaryColor};
   filter: ${(props) => (props.pin ? "contrast(10)" : "none")};
   animation: ${(props) => (props.pin ? "pin-animation 1s ease" : "none")};
 

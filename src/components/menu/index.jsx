@@ -2,14 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { Container } from "../container/index";
-import {
-  MdClose,
-  MdFavorite,
-  MdInsertChart,
-  MdCollections,
-  MdPublic,
-  MdSettings,
-} from "react-icons/md";
+import { MdClose, MdDeleteOutline, MdOutlineUpdate, MdOutlineCreate } from "react-icons/md";
 
 import { MStyles } from "./styles";
 
@@ -23,35 +16,22 @@ const Menu = ({ menuView, handleView }) => {
       </Container>
       <Container justify="flex-start">
         <ul>
-          <Link to="">
+          <Link to="/list-a-property">
             <li>
-              <MdSettings />
-              <p>Manage</p>
+              <MdOutlineCreate />
+              <p>Insert Property</p>
             </li>
           </Link>
           <Link to="">
             <li>
-              <MdFavorite />
-              <p>Favorites</p>
+              <MdOutlineUpdate />
+              <p>Update Property</p>
             </li>
           </Link>
-          <Link to="/ab">
+          <Link to="/delete-a-property">
             <li>
-              <MdCollections />
-              <p>Blog</p>
-            </li>
-          </Link>
-
-          <Link to="/ab">
-            <li>
-              <MdPublic />
-              <p>Information</p>
-            </li>
-          </Link>
-          <Link to="/ab">
-            <li>
-              <MdInsertChart />
-              <p>Graphics</p>
+              <MdDeleteOutline />
+              <p>Delete Property</p>
             </li>
           </Link>
         </ul>

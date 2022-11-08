@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Styles } from "../../../styles";
+import { AppStyles } from "../../../styles";
 
 export const Card = styled.div`
   position: relative;
@@ -9,7 +9,7 @@ export const Card = styled.div`
   background-color: black;
   flex-grow: 1;
   border-radius: 10px;
-  box-shadow: ${Styles.secondaryBoxShadow};
+  box-shadow: ${AppStyles.secondaryBoxShadow};
   cursor: pointer;
   overflow: hidden;
   .img {
@@ -25,7 +25,7 @@ export const Card = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: ${Styles.primaryTransition};
+    transition: ${AppStyles.primaryTransition};
   }
   &:hover .img {
     transform: scale(1.1);

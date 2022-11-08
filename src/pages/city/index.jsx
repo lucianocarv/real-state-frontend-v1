@@ -21,7 +21,7 @@ const CityPage = () => {
   const [currentPin, setCurrentPin] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/${province}/${city}`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/${province}/${city}`)
       .then((data) => data.json())
       .then((data) => {
         let city = data[0];

@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { GoogleMap, useJsApiLoader, InfoWindowF } from "@react-google-maps/api";
-import { GOOGLE_MAPS_API_KEY } from "../../../../api";
 import { Link, useParams } from "react-router-dom";
 
 import { PinContext } from "../../../contexts/PinContext";
@@ -12,7 +11,7 @@ const Map = ({ center, properties }) => {
   const { currentPin } = useContext(PinContext);
   const { province, city } = useParams();
   const { isLoaded, loadError } = useJsApiLoader({
-    googleMapsApiKey: GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
   });
 
   if (loadError) {

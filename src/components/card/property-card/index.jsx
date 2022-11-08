@@ -42,7 +42,9 @@ const PropertyCard = ({ link, type, price, community, address, img, manager, id 
           </Link>
         </div>
       </div>
-      <img className="img" src={img} alt={address + " / " + community} />
+      <div className="img">
+        <img src={img} alt={address + " / " + community} />
+      </div>
     </Card>
   );
 };

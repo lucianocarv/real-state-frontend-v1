@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 
 import { GoogleMap, useJsApiLoader, MarkerF } from "@react-google-maps/api";
-import { GOOGLE_MAPS_API_KEY } from "../../../../api";
 import { CoordsContext } from "../../../contexts/CoordsContext";
 
 import { Styles } from "./styles";
@@ -9,7 +8,7 @@ import { Styles } from "./styles";
 const Map = () => {
   const { coords, setCoords } = useContext(CoordsContext);
   const { isLoaded, loadError } = useJsApiLoader({
-    googleMapsApiKey: GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
   });
   function handleCoords(e) {
     setCoords({ lat: e.latLng.lat({}), lng: e.latLng.lng({}) });

@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export let globalColor = "#0b846e";
 export let globalBoxShadow = "rgba(0, 0, 0, 0.18) 0px 2px 4px;";
-export let Styles = {
+export let AppStyles = {
   primaryColor: "#0b846e",
   secondaryColor: "#ffffff",
   primaryBoxShadow: "rgba(0, 0, 0, 0.18) 0px 2px 4px;",
