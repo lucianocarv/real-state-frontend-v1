@@ -11,22 +11,21 @@ import { ProvincePageStyled } from "./styles";
 
 const ProvincePage = () => {
   const { province } = useParams();
-  const [currentProvince, setCurrentProvince] = useState([{}]);
+  const [currentProvince, setCurrentProvince] = useState([]);
   const [cities, setCities] = useState([{}]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BASE_URL}/${province}`)
-      .then((data) => data.json())
-      .then((data) => {
-        setCurrentProvince(data);
-        setCities(data[0].cities);
-
+      .then((province) => province.json())
+      .then((province) => {
+        setCurrentProvince(province);
+        setCities(province[0].cities);
         setLoading(false);
+        document.title = `Rentfaster Clone | ${province[0].name}`;
       });
   }, []);
-
   return (
-    <Container full justify="center">
+    <Container scroll full justify="center">
       <ProvincePageStyled>
         {loading ? (
           <LoaderContainer>

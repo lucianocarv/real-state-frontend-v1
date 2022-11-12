@@ -28,10 +28,10 @@ const Menu = ({ menuView, handleView }) => {
               <p>Update Property</p>
             </li>
           </Link>
-          <Link to="/delete-a-property">
+          <Link to="/manage-properties">
             <li>
               <MdDeleteOutline />
-              <p>Delete Property</p>
+              <p>Manage Properties</p>
             </li>
           </Link>
         </ul>

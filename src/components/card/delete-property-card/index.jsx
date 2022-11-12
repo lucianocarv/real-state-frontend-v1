@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Styles } from "./styles";
 
-import { Button } from "../../button/styles";
+import { Button } from "./styles";
 import { MdDelete, MdEdit, MdHome, MdGroups, MdOutlineAttachMoney, MdPerson } from "react-icons/md";
 
-const Card = ({ property }) => {
+const Card = ({ property, eventDelete }) => {
   return (
     <Styles>
       <div id="__info">
@@ -26,10 +27,12 @@ const Card = ({ property }) => {
           </p>
         </div>
         <div id="__bottom">
-          <Button invert>
-            <MdEdit />
-          </Button>
-          <Button invert>
+          <Link to={`/manage-properties/c/c/p/change/${property._id}`}>
+            <Button>
+              <MdEdit />
+            </Button>
+          </Link>
+          <Button onClick={() => eventDelete(property._id)}>
             <MdDelete />
           </Button>
         </div>

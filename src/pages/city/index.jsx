@@ -28,6 +28,7 @@ const CityPage = () => {
         setCurrentCity(city);
         setCommunities(city.communities);
         setLoading(false);
+        document.title = `Rentfaster Clone | ${data[0].name} ${province.toLocaleUpperCase()}`;
       });
   }, []);
 
@@ -80,7 +81,7 @@ const CityPage = () => {
           </PinContext.Provider>
         </CityGridMap>
       </Container>
-      <Outlet title="Funciona" />
+      <Outlet />
     </CityPageStyled>
   );
 };

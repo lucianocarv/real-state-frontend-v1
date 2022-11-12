@@ -11,14 +11,15 @@ export const ViewStyled = styled.div`
 
   .view {
     position: absolute;
-    width: 80vw;
+    width: 90vw;
     height: 90vh;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
     z-index: 5;
-    border-radius: 10px;
+    border-radius: 20px;
+    animation: display 0.3s ease;
 
     &__header {
       min-height: 2rem;
@@ -35,5 +36,14 @@ export const ViewStyled = styled.div`
     height: 100%;
     background-color: black;
     opacity: 0.5;
+  }
+
+  @keyframes display {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 90vw;
+    }
   }
 `;

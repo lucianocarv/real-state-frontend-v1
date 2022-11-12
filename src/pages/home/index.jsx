@@ -14,6 +14,8 @@ import {
 } from "./styles";
 
 const HomePage = () => {
+  document.title = "Rentfaster Clone | Home";
+
   const [provinces, setProvinces] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -30,7 +32,7 @@ const HomePage = () => {
       <PuffLoader />
     </LoaderContainer>
   ) : (
-    <Container full justify="center">
+    <Container scroll full justify="center">
       <HomePageStyled>
         <Container justify="center">
           <HomePageTitleStyled>
