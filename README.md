@@ -8,6 +8,7 @@
 <ul color="blue">
   <li><code>ReactJS</code></li>
   <li><code>styled-components</code></li>
+  <li><code>material-ui</code></li>
   <li><code>react-router-dom</code></li>
   <li><code>react-icons</code></li>
   <li><code>react-spinners</code></li>
