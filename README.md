@@ -3,7 +3,7 @@
 
 <p>Em desenvolvimento...</p>
 
-<p>Este pequeno projeto foi construído usando as seguintes tecnologias:</p>
+<p>Este pequeno projeto foi construído usando as seguintes tecnologias e bibliotecas:</p>
 
 <ul color="blue">
   <li><code>ReactJS</code></li>
