@@ -1,7 +1,7 @@
 
 <h1>real-state-fullstack (frontend side)</h1>
 
-<p>Observação: ainda em desenvolvimento...</p>
+<p>Em desenvolvimento...</p>
 
 <p>Este pequeno projeto foi construído usando as seguintes tecnologias:</p>
 
