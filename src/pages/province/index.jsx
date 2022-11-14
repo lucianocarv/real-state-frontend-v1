@@ -25,7 +25,7 @@ const ProvincePage = () => {
       });
   }, []);
   return (
-    <Container scroll full justify="center">
+    <Container full justify="center">
       <ProvincePageStyled>
         {loading ? (
           <LoaderContainer>

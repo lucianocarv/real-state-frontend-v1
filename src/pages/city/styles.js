@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const CityPageStyled = styled.div`
   margin: 0rem auto;
   width: 100%;
-  min-height: 92vh;
 `;
 
 export const CityPagePropertiesContainer = styled.div`
@@ -13,20 +12,11 @@ export const CityPagePropertiesContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   padding: 5px;
-
   @media screen and (max-width: 1280px) {
     & {
       grid-template-columns: 1fr;
     }
   }
-`;
-
-export const CityPageFilterContainer = styled.div`
-  width: 70%;
-  height: 3.5rem;
-  border: 2px solid #0b846e;
-  margin: 0 auto;
-  margin-bottom: 1rem;
 `;
 
 export const CityGridMap = styled.div`
@@ -39,7 +29,7 @@ export const CityGridMap = styled.div`
 `;
 
 export const CityMap = styled.div`
-  background-color: red;
+  background-color: #fff;
 
   .map-marker-price {
     font-size: 18px;

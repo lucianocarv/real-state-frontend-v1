@@ -2,8 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { Container } from "../container/index";
-import { Button } from "../button/styles";
 import { Logo } from "../logo/default-logo/index";
+
+import Button from "@mui/material/Button";
 
 import { Header, Left, Right, Hamburguer } from "./styles";
 import { CgMenu } from "react-icons/cg";
@@ -22,9 +23,11 @@ const HeaderComponent = ({ handleView }) => {
             </Link>
           </Left>
           <Right>
-            <Button>
-              <Link to="/list-a-property">List a Property</Link>
-            </Button>
+            <Link to="/list-a-property">
+              <span className="btn">
+                <Button variant="outlined">List a Property</Button>
+              </span>
+            </Link>
           </Right>
         </Container>
       </Header>

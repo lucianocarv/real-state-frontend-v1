@@ -11,6 +11,7 @@ import { PinContext } from "../../contexts/PinContext";
 import { PuffLoader } from "react-spinners";
 import { BsEmojiFrown } from "react-icons/bs";
 import { CityPageStyled, CityGridMap, CityList, CityMap, NotFound } from "./styles";
+import { Fragment } from "react";
 
 const CityPage = () => {
   const { province, city } = useParams();
@@ -45,7 +46,7 @@ const CityPage = () => {
     </LoaderContainer>
   ) : (
     <CityPageStyled>
-      <Container full justify="center">
+      <Container height="91vh" full justify="center">
         <CityGridMap>
           <PinContext.Provider value={{ currentPin, setCurrentPin }}>
             <CityMap>

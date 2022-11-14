@@ -5,7 +5,7 @@ import { PinContext } from "../../../contexts/PinContext";
 
 import { IoLocationSharp, IoPeople, IoHome } from "react-icons/io5";
 import { FaHandshake } from "react-icons/fa";
-import { Button } from "../../button/styles";
+import Button from "@mui/material/Button";
 
 import { Card } from "./styles";
 
@@ -36,9 +36,10 @@ const PropertyCard = ({ link, type, price, community, address, img, manager, id 
           </li>
         </ul>
         <div className="info__buttons">
-          <Button>Favorite</Button>
           <Link to={link}>
-            <Button invert>View</Button>
+            <Button fullWidth variant="outlined">
+              View
+            </Button>
           </Link>
         </div>
       </div>

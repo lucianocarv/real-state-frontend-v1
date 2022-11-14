@@ -14,7 +14,7 @@ export let AppStyles = {
 };
 
 export const GlobalStyles = createGlobalStyle`
-  
+
     * {
       padding: 0px;
       margin: 0px;

@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import { Outlet } from "react-router";
 
 import Layout from "./Styles";
-import View from "../components/view/index";
+import Modal from "../components/modal/property-modal/index";
 import { Container } from "../components/container/index";
 import HeaderComponent from "../components/header/index";
 import Menu from "../components/menu/index";
@@ -20,7 +20,7 @@ const LayoutComponent = () => {
           <HeaderComponent menuView={menuView} handleView={handleView} />
           <Outlet />
         </Layout>
-        <View />
+        <Modal />
       </Container>
     </Fragment>
   );

@@ -4,12 +4,12 @@ import { CoordsContext } from "../../../contexts/CoordsContext";
 
 import { initialValues, types, utilitiesInluded, provinces, onlyNumbers } from "./supplements";
 
-import { Button } from "../../button/styles";
+import Button from "@mui/material/Button";
 
 import { FormControlLabel, MenuItem, AlertTitle } from "@mui/material";
-import Alert from "@mui/material/Alert";
 import TextField from "@mui/material/TextField";
 import Checkbox from "@mui/material/Checkbox";
+import Snackbar from "@mui/material/Snackbar";
 
 import { globalColor } from "../../../styles";
 import { AiOutlineForm } from "react-icons/ai";
@@ -24,7 +24,7 @@ const FormListAProperty = () => {
   const [cities, setCities] = useState([]);
   const [city, setCity] = useState("");
   const [communities, setCommunities] = useState([]);
-  const [respStatus, setRespStatus] = useState({});
+  const [propCreate, setPropCreate] = useState({ response: {} });
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BASE_URL}/${province.toLowerCase()}`)
@@ -104,7 +104,10 @@ const FormListAProperty = () => {
         return resp.json();
       })
       .then((resp) => {
-        setRespStatus(resp.name);
+        setPropCreate({ response: resp });
+        setTimeout(() => {
+          setPropCreate({ response: {} });
+        }, 4000);
         console.log(resp);
       });
   }
@@ -352,25 +355,40 @@ const FormListAProperty = () => {
           <Map />
         </div>
         <div id="buttons-section" className="form-section">
-          <Button invert onClick={clearForm}>
+          <Button fullWidth variant="outlined" onClick={clearForm}>
             Clear Form
           </Button>
-          <Button onClick={handleSubmit}>Create property</Button>
+          <Button fullWidth variant="outlined" onClick={handleSubmit}>
+            Create property
+          </Button>
         </div>
       </form>
-      {respStatus === "ValidationError" ? (
-        <Alert severity="error">
-          <AlertTitle>Não foi possível inserir a propriedade!</AlertTitle>Campos obrigatórios não
-          foram preenchidos! Por favor, revise o formulário e tente novamente!
-        </Alert>
-      ) : respStatus === "success" ? (
-        <Alert severity="success">
-          <AlertTitle>Success</AlertTitle>
-          The property has been created successfully!
-        </Alert>
-      ) : (
-        ""
-      )}
+
+      <span className="snackbar">
+        {propCreate.response.name == "success" ? (
+          <span className="success">
+            <Snackbar
+              className="success"
+              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+              open={propCreate}
+              message={`Property listed successfully!`}
+              key={"top" + "left"}
+            />
+          </span>
+        ) : propCreate.response.errors ? (
+          <span className="failure">
+            <Snackbar
+              className="failure"
+              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+              open={propCreate}
+              message={`Unable to list property, check required listed fields!`}
+              key={"top" + "left"}
+            />
+          </span>
+        ) : (
+          ""
+        )}
+      </span>
     </Styles>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { PuffLoader } from "react-spinners";
 
 import PrincipalCard from "../../components/card/principal-card/index";
@@ -32,7 +32,7 @@ const HomePage = () => {
       <PuffLoader />
     </LoaderContainer>
   ) : (
-    <Container scroll full justify="center">
+    <Container full>
       <HomePageStyled>
         <Container justify="center">
           <HomePageTitleStyled>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
+import { AppStyles } from "../../styles";
 
 export const Header = styled.header`
-  height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
@@ -23,6 +23,19 @@ export const Right = styled.div`
   align-items: center;
   justify-content: flex-end;
   gap: 1rem;
+
+  .btn button {
+    text-transform: capitalize;
+    color: ${AppStyles.secondaryColor};
+    background-color: ${AppStyles.primaryColor};
+    border-color: ${AppStyles.primaryColor};
+  }
+
+  .btn button:hover {
+    text-transform: capitalize;
+    color: ${AppStyles.primaryColor};
+    background-color: ${AppStyles.secondaryColor};
+  }
 `;
 
 export const Hamburguer = styled.button`

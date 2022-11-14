@@ -6,6 +6,8 @@ import { PinContext } from "../../../contexts/PinContext";
 
 import { FaMapMarker } from "react-icons/fa";
 import { BoxIcon } from "./styles";
+import { LoaderContainer } from "../../loading";
+import { PulseLoader } from "react-spinners";
 
 const Map = ({ center, properties }) => {
   const { currentPin } = useContext(PinContext);
@@ -21,14 +23,17 @@ const Map = ({ center, properties }) => {
   return isLoaded ? (
     <GoogleMap
       options={{ mapId: "381a4d9b52c9a359" }}
-      mapContainerClassName="city-map"
       mapContainerStyle={{ height: "100%", width: "100%" }}
       center={center}
       zoom={11}
     >
       {properties.map((prop) => (
         <InfoWindowF key={prop._id} position={prop.address.coords}>
-          <Link to={`/${province}/${city}/property/${prop._id}`}>
+          <Link
+            to={`/${province}/${city}/${prop.address.community.toLowerCase().replace(" ", "-")}/${
+              prop._id
+            }`}
+          >
             <BoxIcon pin={currentPin == prop._id ? true : false} data-id={prop._id}>
               <FaMapMarker style={{ fontSize: "30px" }} />
             </BoxIcon>
@@ -37,7 +42,9 @@ const Map = ({ center, properties }) => {
       ))}
     </GoogleMap>
   ) : (
-    "Loading..."
+    <LoaderContainer>
+      <PulseLoader />
+    </LoaderContainer>
   );
 };
 

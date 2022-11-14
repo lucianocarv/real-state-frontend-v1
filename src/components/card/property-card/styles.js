@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { AppStyles } from "../../../styles";
 
 export const Card = styled.div`
   max-width: 600px;
@@ -17,8 +18,9 @@ export const Card = styled.div`
   }
 
   .info {
+    width: 100%;
     padding: 0.5rem;
-    max-width: 50%;
+    max-width: 100%;
     align-self: stretch;
     display: flex;
     flex-direction: column;
@@ -56,9 +58,27 @@ export const Card = styled.div`
     }
 
     &__buttons {
+      width: 100%;
       display: flex;
       justify-content: space-between;
       gap: 0.8rem;
+
+      a {
+        width: 100%;
+      }
+
+      button {
+        text-transform: capitalize;
+        font-size: 14px;
+        background-color: ${AppStyles.secondaryColor};
+        color: ${AppStyles.primaryColor};
+        border-color: ${AppStyles.primaryColor};
+      }
+      button:hover {
+        background-color: ${AppStyles.primaryColor};
+        color: ${AppStyles.secondaryColor};
+        border-color: ${AppStyles.primaryColor};
+      }
     }
   }
 

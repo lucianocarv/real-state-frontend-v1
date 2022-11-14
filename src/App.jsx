@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GlobalStyles } from "./Styles";
 
 import Layout from "./layout/index";
-import View from "./components/view/index";
+import PropertyModal from "./components/modal/property-modal/index";
 
 import HomePage from "./pages/home/index";
 import CityPage from "./pages/city/index";
@@ -21,8 +21,7 @@ function App() {
           <Route index path="/" element={<HomePage />} />
           <Route path="/:province" element={<ProvincePage />}></Route>
           <Route path="/:province/:city" element={<CityPage />}>
-            <Route path="/:province/:city/:community/:property" element={<View />}></Route>
-            <Route exact path="/:province/:city/property/:property" element={<View />}></Route>
+            <Route path="/:province/:city/:community/:property" element={<PropertyModal />}></Route>
           </Route>
           <Route exact path="/list-a-property" element={<ListAPropertyPage />}></Route>
           <Route exact path="/manage-properties" element={<ManageProperties />}>

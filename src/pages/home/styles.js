@@ -8,14 +8,12 @@ export const HomePageStyled = styled.div`
 `;
 
 export const HomePageTitleStyled = styled.h1`
-  margin-top: 1rem;
   padding: 2rem;
   font-size: 3rem;
   font-weight: bold;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  overflow: hidden;
 `;
 
 export const HomePageTitleAnimationStyled = styled.span`
@@ -41,7 +39,6 @@ export const HomePageTitleAnimationStyled = styled.span`
 
 export const HomePageCitiesSectionStyled = styled.div`
   max-width: 100vw;
-  padding: 3rem 0rem;
   display: flex;
   justify-content: center;
   gap: 1rem;
