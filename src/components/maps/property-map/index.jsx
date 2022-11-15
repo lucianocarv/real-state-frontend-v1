@@ -17,7 +17,7 @@ const Map = () => {
     <Styles>
       {isLoaded ? (
         <GoogleMap
-          options={{ mapId: "3def645cbe330e12", clickableIcons: false, panControl: true }}
+          options={{ mapId: "3def645cbe330e12" }}
           mapContainerClassName="property-map"
           center={{ lat: coords.lat, lng: coords.lng }}
           zoom={11}

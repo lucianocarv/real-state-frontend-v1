@@ -51,6 +51,15 @@ export const Styles = styled.div`
       border-radius: 0px 8px 8px 0px;
     }
   }
+
+  .btn {
+    border: 1px solid ${AppStyles.primaryColor};
+    color: ${AppStyles.primaryColor};
+  }
+
+  .btn:hover {
+    color: ${AppStyles.primaryColor};
+  }
 `;
 
 export const Button = styled.button`

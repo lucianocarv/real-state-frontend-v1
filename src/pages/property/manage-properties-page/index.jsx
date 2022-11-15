@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Container } from "../../../components/container";
 
-import Card from "../../../components/card/delete-property-card/index";
+import Card from "../../../components/card/manage-property-card/index";
 import { Styles } from "./styles";
 import { Outlet } from "react-router-dom";
 
@@ -41,7 +41,8 @@ const ManageProperties = () => {
 
   return (
     <Fragment>
-      <Container full>
+      <Container height="91vh" scroll full>
+        <header></header>
         <Styles>
           <span className="snackbar">
             {propDeleted.response == "deleted" ? (
@@ -72,8 +73,8 @@ const ManageProperties = () => {
             return <Card key={property._id} property={property} eventDelete={deleteProp} />;
           })}
         </Styles>
+        <Outlet />
       </Container>
-      <Outlet />
     </Fragment>
   );
 };

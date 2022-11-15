@@ -21,7 +21,6 @@ export const GlobalStyles = createGlobalStyle`
       box-sizing: border-box;
       font-family: 'Inter', sans-serif;
       &::-webkit-scrollbar {
-        background-color: white;
         width: 10px;
 
       }

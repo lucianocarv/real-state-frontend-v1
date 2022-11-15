@@ -23,7 +23,7 @@ const ProvincePage = () => {
         setLoading(false);
         document.title = `Rentfaster Clone | ${province[0].name}`;
       });
-  }, []);
+  }, [province]);
   return (
     <Container full justify="center">
       <ProvincePageStyled>

@@ -5,13 +5,21 @@ import { ViewStyled } from "./styles";
 
 import IconButton from "@mui/material/IconButton";
 
-import { MdClose, MdFavoriteBorder } from "react-icons/md";
+import {
+  MdClose,
+  MdFavoriteBorder,
+  MdOutlineAttachMoney,
+  MdAssignmentTurnedIn,
+  MdCall,
+  MdGroups,
+  MdOutlinePublic,
+  MdLocationCity,
+} from "react-icons/md";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { IoIosPeople } from "react-icons/io";
 import { VscCircleFilled } from "react-icons/vsc";
 import { BsFillHouseFill } from "react-icons/bs";
 import { LoaderContainer } from "../../loading";
-import { BarLoader, BeatLoader, ClipLoader, GridLoader, PuffLoader } from "react-spinners";
+import { BarLoader } from "react-spinners";
 
 const PropertyModal = () => {
   const { province, city, community, property } = useParams();
@@ -64,17 +72,17 @@ const PropertyModal = () => {
                   <span className="align">{`${prop.address.number}, ${prop.address.street}`}</span>
                 </p>
                 <p className="align">
-                  <IoIosPeople />
-                  {`${prop.address.community}, Calgary, AB`}
+                  <MdGroups />
+                  {`${prop.address.community}, ${prop.address.city}, ${prop.address.province}`}
                 </p>
 
                 <p className="align">
-                  <IoIosPeople />
+                  <MdOutlineAttachMoney />
                   {`$${prop.prices.min} - $${prop.prices.max}`}
                 </p>
 
                 <p className="utitilies-included align">
-                  <IoIosPeople />
+                  <MdAssignmentTurnedIn />
                   {prop.utilitiesIncluded.map((util) => {
                     return (
                       <Fragment>
@@ -90,15 +98,15 @@ const PropertyModal = () => {
                 <div className="contact">
                   <p className="align">
                     {" "}
-                    <IoIosPeople />
+                    <MdLocationCity />
                     {prop.contact.manager}
                   </p>
-                  <a className="align" href={`${prop.contact.website}`}>
-                    <IoIosPeople /> website
+                  <a className="align" target="_blank" href={`${prop.contact.website}`}>
+                    <MdOutlinePublic /> website
                   </a>
 
                   <p className="align">
-                    <IoIosPeople /> {prop.contact.phone}
+                    <MdCall /> {prop.contact.phone}
                   </p>
                 </div>
               </div>

@@ -20,7 +20,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index path="/" element={<HomePage />} />
           <Route path="/:province" element={<ProvincePage />}></Route>
-          <Route path="/:province/:city" element={<CityPage />}>
+          <Route exact path="/:province/:city" element={<CityPage />}>
             <Route path="/:province/:city/:community/:property" element={<PropertyModal />}></Route>
           </Route>
           <Route exact path="/list-a-property" element={<ListAPropertyPage />}></Route>

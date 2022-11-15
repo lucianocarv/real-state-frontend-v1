@@ -22,7 +22,7 @@ const Map = ({ center, properties }) => {
 
   return isLoaded ? (
     <GoogleMap
-      options={{ mapId: "381a4d9b52c9a359" }}
+      options={{ mapId: "3def645cbe330e12" }}
       mapContainerStyle={{ height: "100%", width: "100%" }}
       center={center}
       zoom={11}

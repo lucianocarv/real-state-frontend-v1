@@ -31,7 +31,7 @@ const CityPage = () => {
         setLoading(false);
         document.title = `Rentfaster Clone | ${data[0].name} ${province.toLocaleUpperCase()}`;
       });
-  }, []);
+  }, [city]);
 
   const allProperties = [];
   communities.forEach((community) => {

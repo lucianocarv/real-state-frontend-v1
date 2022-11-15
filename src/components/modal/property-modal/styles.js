@@ -42,24 +42,25 @@ export const ViewStyled = styled.div`
   .align {
     display: flex;
     align-items: center;
-    gap: 0.3rem;
+    gap: 0.5rem;
   }
 
   .property {
     max-width: 100%;
     display: flex;
-    align-items: flex-start;
-    align-items: flex-start;
+    padding-left: 7rem;
     gap: 1rem;
 
     img {
       width: 50%;
+      border-radius: 15px;
     }
 
     .info-property {
       width: 50%;
       padding: 0rem 1rem;
       display: flex;
+      align-items: center;
       flex-direction: column;
       gap: 1rem;
       font-size: 16px;
@@ -67,14 +68,18 @@ export const ViewStyled = styled.div`
       color: ${AppStyles.primaryColor};
 
       & > p {
-        width: 70%;
+        width: 80%;
         background-color: #e0f7fa;
         padding: 0.5rem;
         border-radius: 10px;
+        display: flex;
+        align-items: center;
       }
 
       svg {
         font-size: 25px;
+        display: flex;
+        align-items: center;
       }
 
       .type {
@@ -89,6 +94,7 @@ export const ViewStyled = styled.div`
       .utitilies-included {
         display: flex;
         align-items: center;
+        overflow-x: scroll;
 
         .utility {
           display: flex;
@@ -100,7 +106,18 @@ export const ViewStyled = styled.div`
       }
 
       .contact {
-        background-color: #e0f7fa;
+        width: 80%;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        background-color: ${AppStyles.primaryColor};
+        color: ${AppStyles.secondaryColor};
+        border-radius: 10px;
+
+        a {
+          color: whitesmoke;
+        }
       }
     }
   }
