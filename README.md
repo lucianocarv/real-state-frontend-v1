@@ -1,13 +1,14 @@
 
 <h1>real-state-fullstack (frontend side)</h1>
 
-<p>Observação: ainda em desenvolvimento...</p>
+<p>Em desenvolvimento...</p>
 
-<p>Este pequeno projeto foi construído usando as seguintes tecnologias:</p>
+<p>Este pequeno projeto foi construído usando as seguintes tecnologias e bibliotecas:</p>
 
 <ul color="blue">
   <li><code>ReactJS</code></li>
   <li><code>styled-components</code></li>
+  <li><code>material-ui</code></li>
   <li><code>react-router-dom</code></li>
   <li><code>react-icons</code></li>
   <li><code>react-spinners</code></li>
