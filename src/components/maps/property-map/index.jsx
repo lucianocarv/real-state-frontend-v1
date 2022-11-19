@@ -18,7 +18,7 @@ const Map = () => {
       {isLoaded ? (
         <GoogleMap
           options={{ mapId: "3def645cbe330e12" }}
-          mapContainerClassName="property-map"
+          mapContainerClassName="__property_map"
           center={{ lat: coords.lat, lng: coords.lng }}
           zoom={11}
           onClick={handleCoords}

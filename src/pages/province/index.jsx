@@ -7,7 +7,7 @@ import { LoaderContainer } from "../../components/loading/index";
 import { Container } from "../../components/container/index";
 import PrincipalCard from "../../components/card/principal-card/index";
 
-import { ProvincePageStyled } from "./styles";
+import { Styles } from "./styles";
 
 const ProvincePage = () => {
   const { province } = useParams();
@@ -26,7 +26,7 @@ const ProvincePage = () => {
   }, [province]);
   return (
     <Container full justify="center">
-      <ProvincePageStyled>
+      <Styles>
         {loading ? (
           <LoaderContainer>
             <PuffLoader />
@@ -51,7 +51,7 @@ const ProvincePage = () => {
             </Container>
           </Fragment>
         )}
-      </ProvincePageStyled>
+      </Styles>
     </Container>
   );
 };

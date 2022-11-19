@@ -4,11 +4,11 @@ import { AppStyles } from "../../../styles";
 
 export const Styles = styled.div`
   border-radius: 8px;
-  box-shadow: ${AppStyles.terciaryBoxShadow};
+  box-shadow: ${AppStyles.box_shadow.RFterciary};
   display: flex;
   justify-content: space-between;
 
-  #__info {
+  & #__info {
     padding: 1rem 1rem 0 0.5rem;
     display: flex;
     flex-direction: column;
@@ -18,7 +18,7 @@ export const Styles = styled.div`
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      color: ${AppStyles.primaryColor};
+      color: ${AppStyles.color.RFPrimary};
       font-size: 14px;
       font-weight: 500;
 
@@ -32,7 +32,7 @@ export const Styles = styled.div`
     }
   }
 
-  #__bottom {
+  & #__bottom {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -43,7 +43,7 @@ export const Styles = styled.div`
       font-size: 20px;
     }
   }
-  #__img {
+  & #__img {
     display: flex;
     img {
       max-inline-size: 250px;
@@ -52,32 +52,12 @@ export const Styles = styled.div`
     }
   }
 
-  .btn {
-    border: 1px solid ${AppStyles.primaryColor};
-    color: ${AppStyles.primaryColor};
+  & .__btn {
+    border: 1px solid ${AppStyles.color.RFPrimary};
+    color: ${AppStyles.color.RFPrimary};
   }
 
-  .btn:hover {
-    color: ${AppStyles.primaryColor};
-  }
-`;
-
-export const Button = styled.button`
-  outline: 0;
-  border: 0;
-  width: 40px;
-  height: 40px;
-  color: ${AppStyles.primaryColor};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50px;
-  cursor: pointer;
-  background-color: ${AppStyles.secondaryColor};
-  transition: ${AppStyles.primaryTransition};
-  box-shadow: ${AppStyles.terciaryBoxShadow};
-
-  &:hover {
-    box-shadow: ${AppStyles.secondaryBoxShadow};
+  & .__btn:hover {
+    color: ${AppStyles.color.RFPrimary};
   }
 `;

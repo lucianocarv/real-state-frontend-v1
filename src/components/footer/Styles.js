@@ -1,14 +1,15 @@
 import styled from "styled-components";
+import { AppStyles } from "../../styles";
 
 export const Styles = styled.div`
   width: 100%;
   min-height: 20rem;
-  background-color: #212121;
+  background-color: ${AppStyles.color.RFPrimary};
   display: flex;
   justify-content: center;
 
   footer {
-    max-width: 1240px;
+    max-width: ${AppStyles.widths.RF1240};
     width: 100%;
     height: 100%;
     padding: 1rem 0rem;
@@ -39,16 +40,16 @@ export const Styles = styled.div`
         font-size: ${(props) => (props.media ? "30px" : "")};
         a {
           font-size: 0.8rem;
-          color: #aaa;
+          color: ${AppStyles.color.RFSpecialFont};
           padding: 0.4rem 0rem;
-          transition: all 0.1s ease;
+          transition: ${AppStyles.transitions.RFPrimary};
           &:hover {
-            color: #fff;
+            color: ${AppStyles.color.RFSecondary};
           }
         }
       }
     }
-    #social-media {
+    & #__social-media {
       h2,
       ul {
         width: 100%;
@@ -58,7 +59,7 @@ export const Styles = styled.div`
           justify-content: center;
           font-size: 30px;
           &:hover {
-            color: #0b846e;
+            color: ${AppStyles.color.RFPrimary};
           }
         }
       }

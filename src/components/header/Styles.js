@@ -24,17 +24,17 @@ export const Right = styled.div`
   justify-content: flex-end;
   gap: 1rem;
 
-  .btn button {
+  .__btn button {
     text-transform: capitalize;
-    color: ${AppStyles.secondaryColor};
-    background-color: ${AppStyles.primaryColor};
-    border-color: ${AppStyles.primaryColor};
+    color: ${AppStyles.color.RFSecondary};
+    background-color: ${AppStyles.color.RFPrimary};
+    border-color: ${AppStyles.color.RFPrimary};
   }
 
-  .btn button:hover {
+  .__btn button:hover {
     text-transform: capitalize;
-    color: ${AppStyles.primaryColor};
-    background-color: ${AppStyles.secondaryColor};
+    color: ${AppStyles.color.RFPrimary};
+    background-color: ${AppStyles.color.RFSecondary};
   }
 `;
 

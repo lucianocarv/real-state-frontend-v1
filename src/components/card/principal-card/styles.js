@@ -9,10 +9,11 @@ export const Card = styled.div`
   background-color: black;
   flex-grow: 1;
   border-radius: 10px;
-  box-shadow: ${AppStyles.secondaryBoxShadow};
+  box-shadow: ${AppStyles.box_shadow.RFSecondary};
   cursor: pointer;
   overflow: hidden;
-  .img {
+
+  & .__img {
     width: 100%;
     height: 100%;
     border-radius: inherit;
@@ -25,12 +26,14 @@ export const Card = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: ${AppStyles.primaryTransition};
+    transition: ${AppStyles.transitions.RFPrimary};
   }
-  &:hover .img {
+
+  &:hover .__img {
     transform: scale(1.1);
   }
-  p {
+
+  & p {
     width: 100%;
     text-align: center;
     position: absolute;

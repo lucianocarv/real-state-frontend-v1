@@ -1,17 +1,12 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { PuffLoader } from "react-spinners";
 
-import PrincipalCard from "../../components/card/principal-card/index";
 import { Container } from "../../components/container/index";
-import Footer from "../../components/footer/index";
 import { LoaderContainer } from "../../components/loading/index";
+import PrincipalCard from "../../components/card/principal-card/index";
+import Footer from "../../components/footer/index";
 
-import {
-  HomePageStyled,
-  HomePageTitleStyled,
-  HomePageTitleAnimationStyled,
-  HomePageCitiesSectionStyled,
-} from "./styles";
+import { Styles } from "./styles";
 
 const HomePage = () => {
   document.title = "Rentfaster Clone | Home";
@@ -33,17 +28,17 @@ const HomePage = () => {
     </LoaderContainer>
   ) : (
     <Container full>
-      <HomePageStyled>
+      <Styles>
         <Container justify="center">
-          <HomePageTitleStyled>
+          <div className="__title_animated">
             <Container justify="center">Find a Home,</Container>
             <Container justify="center">
-              Rent a Home <HomePageTitleAnimationStyled>Faster!</HomePageTitleAnimationStyled>
+              Rent a Home <span className="__animation">Faster!</span>
             </Container>
-          </HomePageTitleStyled>
+          </div>
         </Container>
         <Container justify="center">
-          <HomePageCitiesSectionStyled>
+          <div className="__cities_section">
             {provinces.map((province) => {
               return (
                 <PrincipalCard
@@ -54,9 +49,9 @@ const HomePage = () => {
                 />
               );
             })}
-          </HomePageCitiesSectionStyled>
+          </div>
         </Container>
-      </HomePageStyled>
+      </Styles>
       <Footer />
     </Container>
   );

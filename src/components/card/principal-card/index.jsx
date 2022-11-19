@@ -7,7 +7,7 @@ const PrincipalCard = (props) => {
   return (
     <Link to={props.link}>
       <Card image={props.image}>
-        <div className="img"></div>
+        <div className="__img"></div>
         <p>{props.title}</p>
       </Card>
     </Link>

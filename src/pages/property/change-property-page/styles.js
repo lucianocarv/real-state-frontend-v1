@@ -9,7 +9,7 @@ export const Styles = styled.div`
   transform: translate(-50%, -50%);
   overflow: hidden;
 
-  header {
+  & header {
     width: 100%;
     display: flex;
     justify-content: flex-end;

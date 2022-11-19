@@ -6,7 +6,7 @@ export const WordStyled = styled.span`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  color: ${(props) => (props.first ? "black" : AppStyles.primaryColor)};
+  color: ${(props) => (props.first ? AppStyles.color.RFTerciary : AppStyles.color.RFPrimary)};
   font-size: 28px;
   font-weight: 700;
 `;

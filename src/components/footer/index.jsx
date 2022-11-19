@@ -37,7 +37,7 @@ const Footer = () => {
             <Link to="/">Property Management Companies</Link>
           </ul>
         </section>
-        <section id="social-media">
+        <section id="__social-media">
           <h2>SOCIAL MEDIA</h2>
           <ul>
             <Link to="/">

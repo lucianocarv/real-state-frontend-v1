@@ -2,20 +2,20 @@ import styled from "styled-components";
 
 import { AppStyles } from "../../styles";
 
-export const MStyles = styled.div`
+export const Styles = styled.div`
   position: absolute;
-  background-color: #fff;
+  background-color: ${AppStyles.color.RFSecondary};
   left: ${(props) => (props.close ? "-" + props.width : "0px")};
   width: ${(props) => props.width};
   min-height: 100vh;
   z-index: 3;
-  transition: all 0.4s ease;
+  transition: ${AppStyles.transitions.RFPrimary};
 
   button {
     padding: 1rem;
     font-size: 2rem;
     background-color: transparent;
-    color: ${AppStyles.primaryColor};
+    color: ${AppStyles.color.RFPrimary};
     border: none;
     outline: none;
     cursor: pointer;
@@ -35,15 +35,15 @@ export const MStyles = styled.div`
       padding: 0px 10px;
       font-weight: 600;
       font-size: 25px;
-      color: ${AppStyles.primaryColor};
+      color: ${AppStyles.color.RFPrimary};
       display: flex;
       align-items: center;
       justify-content: flex-start;
       gap: 1rem;
       border-radius: 5px;
-      box-shadow: ${AppStyles.primaryBoxShadow};
+      box-shadow: ${AppStyles.box_shadow.RFPrimary};
       background-color: #fff;
-      transition: all 0.2s ease;
+      transition: ${AppStyles.transitions.RFPrimary};
 
       p {
         font-size: 17px;

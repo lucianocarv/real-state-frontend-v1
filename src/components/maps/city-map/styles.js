@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { AppStyles } from "../../../styles";
 
 export const BoxIcon = styled.span`
-  transition: ${AppStyles.primaryTransition};
-  color: ${AppStyles.primaryColor};
+  transition: ${AppStyles.transitions.RFPrimary};
+  color: ${AppStyles.color.RFPrimary};
   filter: ${(props) => (props.pin ? "contrast(10)" : "none")};
   animation: ${(props) => (props.pin ? "pin-animation 1s ease" : "none")};
 

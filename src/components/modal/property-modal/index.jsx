@@ -1,9 +1,9 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-import { ViewStyled } from "./styles";
+import { Styles } from "./styles";
 
-import IconButton from "@mui/material/IconButton";
+import { BarLoader } from "react-spinners";
 
 import {
   MdClose,
@@ -15,15 +15,17 @@ import {
   MdOutlinePublic,
   MdLocationCity,
 } from "react-icons/md";
+
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { VscCircleFilled } from "react-icons/vsc";
 import { BsFillHouseFill } from "react-icons/bs";
 import { LoaderContainer } from "../../loading";
-import { BarLoader } from "react-spinners";
 
-const PropertyModal = () => {
+import IconButton from "@mui/material/IconButton";
+
+const Modal = () => {
   const { province, city, community, property } = useParams();
-  const [prop, setProp] = useState({});
+  const [currentProperty, setCurrentProperty] = useState({});
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -31,19 +33,18 @@ const PropertyModal = () => {
       fetch(`${import.meta.env.VITE_BASE_URL}/${province}/${city}/${community}/${property}`)
         .then((resp) => resp.json())
         .then((property) => {
-          setProp(property);
+          setCurrentProperty(property);
           setLoading(true);
-          console.log(property);
         });
     }
   }, [property]);
 
   return property ? (
-    <ViewStyled>
-      <div className="view">
+    <Styles>
+      <div className="__modal">
         {loading == true ? (
           <Fragment>
-            <header className="view__header">
+            <header className="__modal_header">
               <Link>
                 <IconButton>
                   <MdFavoriteBorder fontSize={30} />
@@ -53,60 +54,63 @@ const PropertyModal = () => {
                 <IconButton
                   onClick={() => {
                     setLoading(false);
-                    setProp({});
+                    setCurrentProperty({});
                   }}
                 >
                   <MdClose fontSize={30} />
                 </IconButton>
               </Link>
             </header>
-            <div className="property">
-              <img className="img" src={prop.img_cover} alt="" />
-              <div className="info-property">
-                <p className="align type">
+            <div className="__property">
+              <img className="__img" src={currentProperty.img_cover} alt="" />
+              <div className="__info_property">
+                <p className="__align __type">
                   <BsFillHouseFill />
-                  {prop.type}
+                  {currentProperty.type}
                 </p>
-                <p className="address">
+                <p className="__address">
                   <FaMapMarkerAlt />
-                  <span className="align">{`${prop.address.number}, ${prop.address.street}`}</span>
+                  <span className="__align">{`${currentProperty.address.number}, ${currentProperty.address.street}`}</span>
                 </p>
-                <p className="align">
+                <p className="__align">
                   <MdGroups />
-                  {`${prop.address.community}, ${prop.address.city}, ${prop.address.province}`}
+                  {`${currentProperty.address.community}, ${currentProperty.address.city}, ${currentProperty.address.province}`}
                 </p>
 
-                <p className="align">
+                <p className="__align">
                   <MdOutlineAttachMoney />
-                  {`$${prop.prices.min} - $${prop.prices.max}`}
+                  {`$${currentProperty.prices.min} - $${currentProperty.prices.max}`}
                 </p>
 
-                <p className="utitilies-included align">
+                <p className="__utitilies_included __align">
                   <MdAssignmentTurnedIn />
-                  {prop.utilitiesIncluded.map((util) => {
+                  {currentProperty.utilitiesIncluded.map((utility) => {
                     return (
                       <Fragment>
-                        <span className="utility">{util}</span>
+                        <span className="__utility">{utility}</span>
 
-                        <span className="utility">
+                        <span className="__utility">
                           <VscCircleFilled fontSize={5} />
                         </span>
                       </Fragment>
                     );
                   })}
                 </p>
-                <div className="contact">
-                  <p className="align">
-                    {" "}
+                <div className="__contact">
+                  <p className="__align">
                     <MdLocationCity />
-                    {prop.contact.manager}
+                    {currentProperty.contact.manager}
                   </p>
-                  <a className="align" target="_blank" href={`${prop.contact.website}`}>
+                  <a
+                    className="__align"
+                    target="_blank"
+                    href={`${currentProperty.contact.website}`}
+                  >
                     <MdOutlinePublic /> website
                   </a>
 
-                  <p className="align">
-                    <MdCall /> {prop.contact.phone}
+                  <p className="__align">
+                    <MdCall /> {currentProperty.contact.phone}
                   </p>
                 </div>
               </div>
@@ -118,11 +122,11 @@ const PropertyModal = () => {
           </LoaderContainer>
         )}
       </div>
-      <div className="filter"></div>
-    </ViewStyled>
+      <div className="__filter"></div>
+    </Styles>
   ) : (
     ""
   );
 };
 
-export default PropertyModal;
+export default Modal;

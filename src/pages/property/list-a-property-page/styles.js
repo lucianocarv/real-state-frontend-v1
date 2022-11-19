@@ -6,11 +6,11 @@ export const Styles = styled.div`
   display: flex;
   justify-content: center;
 
-  h1 {
+  & h1 {
     width: 100%;
     text-align: center;
   }
-  .sections {
+  & .__sections {
     width: 60%;
     height: 100%;
     display: grid;

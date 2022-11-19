@@ -4,7 +4,6 @@ import { useState } from "react";
 import { MdClose } from "react-icons/md";
 import { useParams, Link } from "react-router-dom";
 import { BarLoader } from "react-spinners";
-import FormListAProperty from "../../../components/forms/list-a-property-form";
 import { CoordsContextProvider } from "../../../contexts/CoordsContext";
 
 import { LoaderContainer } from "../../../components/loading/index";
@@ -40,13 +39,9 @@ const ChangePropertyPage = () => {
           </Link>
         </header>
         <CoordsContextProvider>
-          {property.type ? (
-            <FormListAProperty update property={property} />
-          ) : (
-            <LoaderContainer>
-              <BarLoader />
-            </LoaderContainer>
-          )}
+          <LoaderContainer>
+            <BarLoader />
+          </LoaderContainer>
         </CoordsContextProvider>
       </div>
       <div className="__container"></div>

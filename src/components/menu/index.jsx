@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import { Container } from "../container/index";
 import { MdClose, MdKeyboardArrowRight } from "react-icons/md";
 
-import { MStyles } from "./styles";
+import { Styles } from "./styles";
 
 const Menu = ({ menuView, handleView }) => {
   return (
-    <MStyles width="250px" close={menuView}>
+    <Styles width="250px" close={menuView}>
       <Container height="3.5rem" justify="flex-end">
         <button onClick={() => handleView()}>
           <MdClose />
@@ -49,7 +49,7 @@ const Menu = ({ menuView, handleView }) => {
           </Link>
         </ul>
       </Container>
-    </MStyles>
+    </Styles>
   );
 };
 

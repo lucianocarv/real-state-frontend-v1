@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Styles } from "./styles";
 
 import IconButton from "@mui/material/IconButton";
 
-import { Button } from "./styles";
 import { MdDelete, MdEdit, MdHome, MdGroups, MdOutlineAttachMoney, MdPerson } from "react-icons/md";
 
 const Card = ({ property, eventDelete }) => {
@@ -30,11 +29,11 @@ const Card = ({ property, eventDelete }) => {
         </div>
         <div id="__bottom">
           <Link to={`/manage-properties/c/c/p/change/${property._id}`}>
-            <IconButton className="btn">
+            <IconButton className="__btn">
               <MdEdit />
             </IconButton>
           </Link>
-          <IconButton className="btn" onClick={() => eventDelete(property._id)}>
+          <IconButton className="__btn" onClick={() => eventDelete(property._id)}>
             <MdDelete />
           </IconButton>
         </div>

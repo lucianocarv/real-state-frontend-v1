@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { AppStyles } from "../../../Styles";
 
-export const ViewStyled = styled.div`
+export const Styles = styled.div`
   position: absolute;
   min-height: 100vh;
   width: 100vw;
@@ -10,7 +10,7 @@ export const ViewStyled = styled.div`
   transform: translate(-50%, -50%);
   z-index: 5;
 
-  .view {
+  & .__modal {
     position: absolute;
     width: 90vw;
     min-height: 80vh;
@@ -31,7 +31,7 @@ export const ViewStyled = styled.div`
     }
   }
 
-  .filter {
+  & .__filter {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -39,13 +39,13 @@ export const ViewStyled = styled.div`
     opacity: 0.5;
   }
 
-  .align {
+  & .__align {
     display: flex;
     align-items: center;
     gap: 0.5rem;
   }
 
-  .property {
+  & .__property {
     max-width: 100%;
     display: flex;
     padding-left: 7rem;
@@ -56,7 +56,7 @@ export const ViewStyled = styled.div`
       border-radius: 15px;
     }
 
-    .info-property {
+    .__info_property {
       width: 50%;
       padding: 0rem 1rem;
       display: flex;
@@ -82,21 +82,21 @@ export const ViewStyled = styled.div`
         align-items: center;
       }
 
-      .type {
+      .__type {
       }
 
-      .address {
+      .__address {
         display: flex;
         align-items: center;
         gap: 0.3rem;
       }
 
-      .utitilies-included {
+      .__utitilies_included {
         display: flex;
         align-items: center;
         overflow-x: scroll;
 
-        .utility {
+        .__utility {
           display: flex;
           align-items: center;
           svg {
@@ -105,7 +105,7 @@ export const ViewStyled = styled.div`
         }
       }
 
-      .contact {
+      .__contact {
         width: 80%;
         padding: 1rem;
         display: flex;

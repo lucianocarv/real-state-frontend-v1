@@ -24,7 +24,7 @@ const HeaderComponent = ({ handleView }) => {
           </Left>
           <Right>
             <Link to="/list-a-property">
-              <span className="btn">
+              <span className="__btn">
                 <Button variant="outlined">List a Property</Button>
               </span>
             </Link>

@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-
 import { PinContext } from "../../../contexts/PinContext";
 
 import { IoLocationSharp, IoPeople, IoHome } from "react-icons/io5";
 import { FaHandshake } from "react-icons/fa";
+
 import Button from "@mui/material/Button";
 
 import { Card } from "./styles";
@@ -17,11 +17,11 @@ const PropertyCard = ({ link, type, price, community, address, img, manager, id 
   };
   return (
     <Card onMouseEnter={handleCurrentPin}>
-      <div className="info">
+      <div className="__info">
         <Link to={link}>
-          <p className="info__price">${price}</p>
+          <p className="__info__price">${price}</p>
         </Link>
-        <ul className="info__list">
+        <ul className="__info__list">
           <li>
             <IoHome /> {type}
           </li>
@@ -35,7 +35,7 @@ const PropertyCard = ({ link, type, price, community, address, img, manager, id 
             <FaHandshake /> {manager}
           </li>
         </ul>
-        <div className="info__buttons">
+        <div className="__info__buttons">
           <Link to={link}>
             <Button fullWidth variant="outlined">
               View
@@ -43,7 +43,7 @@ const PropertyCard = ({ link, type, price, community, address, img, manager, id 
           </Link>
         </div>
       </div>
-      <div className="img">
+      <div className="__img">
         <img src={img} alt={address + " / " + community} />
       </div>
     </Card>

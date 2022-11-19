@@ -1,13 +1,14 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { Container } from "../../../components/container";
-
-import Card from "../../../components/card/manage-property-card/index";
-import { Styles } from "./styles";
+import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
+
+import { Container } from "../../../components/container";
+import Card from "../../../components/card/manage-property-card/index";
 
 import Snackbar from "@mui/material/Snackbar";
 
-const ManageProperties = () => {
+import { Styles } from "./styles";
+
+const ManagePropertiesPage = () => {
   document.title = `Rentfaster Clone | Manage Properties`;
 
   const [properties, setProperties] = useState([]);
@@ -40,43 +41,39 @@ const ManageProperties = () => {
   }, [propDeleted]);
 
   return (
-    <Fragment>
-      <Container height="91vh" scroll full>
-        <header></header>
-        <Styles>
-          <span className="snackbar">
-            {propDeleted.response == "deleted" ? (
-              <span className="success">
-                <Snackbar
-                  className="success"
-                  anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-                  open={deleteProp}
-                  message={`Propriedade deletada com sucesso!`}
-                  key={"top" + "left"}
-                />
-              </span>
-            ) : propDeleted.wasDelete !== 1 && propDeleted.wasDelete !== 2 ? (
-              <span className="failure">
-                <Snackbar
-                  className="failure"
-                  anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-                  open={deleteProp}
-                  message={`Nao foi possivel deletar a propriedade`}
-                  key={"top" + "left"}
-                />
-              </span>
-            ) : (
-              ""
-            )}
-          </span>
-          {properties.map((property) => {
-            return <Card key={property._id} property={property} eventDelete={deleteProp} />;
-          })}
-        </Styles>
-        <Outlet />
-      </Container>
-    </Fragment>
+    <Container height="91vh" scroll full>
+      <header></header>
+      <Styles>
+        <span className="__snackbar">
+          {propDeleted.response == "deleted" ? (
+            <span className="__success">
+              <Snackbar
+                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                open={deleteProp}
+                message={`Propriedade deletada com sucesso!`}
+                key={"top" + "left"}
+              />
+            </span>
+          ) : propDeleted.wasDelete !== 1 && propDeleted.wasDelete !== 2 ? (
+            <span className="__failure">
+              <Snackbar
+                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                open={deleteProp}
+                message={`Nao foi possivel deletar a propriedade`}
+                key={"top" + "left"}
+              />
+            </span>
+          ) : (
+            ""
+          )}
+        </span>
+        {properties.map((property) => {
+          return <Card key={property._id} property={property} eventDelete={deleteProp} />;
+        })}
+      </Styles>
+      <Outlet />
+    </Container>
   );
 };
 
-export default ManageProperties;
+export default ManagePropertiesPage;

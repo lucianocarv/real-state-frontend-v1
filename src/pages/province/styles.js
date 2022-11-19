@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ProvincePageStyled = styled.div`
+export const Styles = styled.div`
   max-width: 100vw;
   margin-bottom: 1rem;
   display: flex;

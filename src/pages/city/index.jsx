@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Outlet, useParams } from "react-router-dom";
+import { PinContext } from "../../contexts/PinContext";
 
 import { Container } from "../../components/container/index";
 import PropertyCard from "../../components/card/property-card/index";
 import { LoaderContainer } from "../../components/loading/index";
 import Map from "../../components/maps/city-map/index";
 
-import { PinContext } from "../../contexts/PinContext";
-
 import { PuffLoader } from "react-spinners";
 import { BsEmojiFrown } from "react-icons/bs";
-import { CityPageStyled, CityGridMap, CityList, CityMap, NotFound } from "./styles";
-import { Fragment } from "react";
+
+import { Styles } from "./styles";
 
 const CityPage = () => {
   const { province, city } = useParams();
@@ -45,14 +44,14 @@ const CityPage = () => {
       <PuffLoader />
     </LoaderContainer>
   ) : (
-    <CityPageStyled>
+    <Styles>
       <Container height="91vh" full justify="center">
-        <CityGridMap>
+        <div className="__city_container">
           <PinContext.Provider value={{ currentPin, setCurrentPin }}>
-            <CityMap>
+            <div className="__map">
               <Map center={currentCity.coords} properties={allProperties} />
-            </CityMap>
-            <CityList>
+            </div>
+            <ul className="__property_list">
               {allProperties.length > 0 ? (
                 allProperties.map((property) => {
                   let community = String(property.address.community)
@@ -73,17 +72,17 @@ const CityPage = () => {
                   );
                 })
               ) : (
-                <NotFound>
+                <div className="__not_found">
                   <BsEmojiFrown />
                   <p>Sorry, no properties were found for this city.</p>
-                </NotFound>
+                </div>
               )}
-            </CityList>
+            </ul>
           </PinContext.Provider>
-        </CityGridMap>
+        </div>
       </Container>
       <Outlet />
-    </CityPageStyled>
+    </Styles>
   );
 };
 
