@@ -4,7 +4,7 @@ import { AppStyles } from "../../styles";
 export const Styles = styled.div`
   width: 100%;
   min-height: 20rem;
-  background-color: ${AppStyles.color.RFPrimary};
+  background-color: ${AppStyles.color.RFSpecialBackground};
   display: flex;
   justify-content: center;
 

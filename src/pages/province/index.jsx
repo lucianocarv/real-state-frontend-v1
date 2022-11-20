@@ -36,17 +36,10 @@ const ProvincePage = () => {
             <Container justify="center">
               <PrincipalTitle>{currentProvince[0].name}</PrincipalTitle>
             </Container>
-            <Container justify="center">
+            <Container padding="0px 50px 50px 50px" justify="center">
               {cities.map((city) => {
                 let nameParse = String(city.name).toLocaleLowerCase().replace(" ", "-");
-                return (
-                  <PrincipalCard
-                    key={city._id}
-                    title={city.name}
-                    link={nameParse}
-                    image={city.img_cover}
-                  />
-                );
+                return <PrincipalCard key={city._id} title={city.name} link={nameParse} image={city.img_cover} />;
               })}
             </Container>
           </Fragment>

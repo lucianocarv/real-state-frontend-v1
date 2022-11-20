@@ -4,9 +4,10 @@ import { AppStyles } from "../../../styles";
 
 export const Card = styled.div`
   position: relative;
+  padding: 0.3rem;
   height: 350px;
   min-width: 280px;
-  background-color: black;
+  background-color: ${AppStyles.color.RFSecondary};
   flex-grow: 1;
   border-radius: 10px;
   box-shadow: ${AppStyles.box_shadow.RFSecondary};
@@ -30,7 +31,7 @@ export const Card = styled.div`
   }
 
   &:hover .__img {
-    transform: scale(1.1);
+    transform: scale(1.035);
   }
 
   & p {

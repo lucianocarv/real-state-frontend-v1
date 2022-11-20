@@ -41,6 +41,7 @@ export const Styles = styled.div`
     display: flex;
     justify-content: center;
     gap: 1rem;
+    padding-bottom: 2rem;
     flex-wrap: wrap;
   }
 `;

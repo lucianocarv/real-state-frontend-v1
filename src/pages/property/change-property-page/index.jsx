@@ -9,6 +9,7 @@ import { CoordsContextProvider } from "../../../contexts/CoordsContext";
 import { LoaderContainer } from "../../../components/loading/index";
 
 import { Styles } from "./styles";
+import { Form } from "../../../components/forms/update-property";
 
 const ChangePropertyPage = () => {
   const { id } = useParams();
@@ -42,6 +43,7 @@ const ChangePropertyPage = () => {
           <LoaderContainer>
             <BarLoader />
           </LoaderContainer>
+          <Form />
         </CoordsContextProvider>
       </div>
       <div className="__container"></div>

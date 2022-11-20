@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { AppStyles } from "../../../styles";
+
 export const Styles = styled.div`
   width: 100%;
 
@@ -23,6 +25,18 @@ export const Styles = styled.div`
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
+    }
+
+    .__buttons {
+      button {
+        background-color: ${AppStyles.color.RFPrimary};
+        border-color: ${AppStyles.color.RFPrimary};
+      }
+
+      button:nth-child(1) {
+        color: ${AppStyles.color.RFPrimary};
+        background-color: ${AppStyles.color.RFSecondary};
+      }
     }
   }
 `;

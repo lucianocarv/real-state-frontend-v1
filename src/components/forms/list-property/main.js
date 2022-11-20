@@ -12,7 +12,6 @@ export const property = {
     min: "",
     max: "",
   },
-  utilities_included: [],
   contact: {
     manager: "",
     website: "",
@@ -40,7 +39,6 @@ export class Property {
       min: onlyNumbers(String(property.prices.min)),
       max: onlyNumbers(String(property.prices.max)),
     };
-    this.utilities_included = property.utilities_included;
     this.contact = {
       manager: property.contact.manager,
       website: property.contact.website,
