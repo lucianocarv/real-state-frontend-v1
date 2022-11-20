@@ -9,18 +9,19 @@ export const Styles = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 5;
+  overflow: hidden;
+  transition: ${AppStyles.transitions.RFPrimary};
 
   & .__modal {
     position: absolute;
-    width: 90vw;
-    min-height: 80vh;
+    width: 36vw;
+    min-height: 100vh;
     padding-bottom: 3rem;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    right: 0%;
     background-color: white;
     z-index: 1;
-    border-radius: 20px;
+    border-radius: 20px 0px 0px 20px;
+    animation: right-to-left 0.3s;
 
     &__header {
       min-height: 2rem;
@@ -29,6 +30,76 @@ export const Styles = styled.div`
       display: flex;
       justify-content: space-between;
     }
+
+    & .__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+
+      & .__img {
+        padding: 0rem 4rem;
+        img {
+          max-inline-size: 100%;
+          border-radius: 20px;
+        }
+      }
+
+      & .__info,
+      & .__contact {
+        width: 100%;
+        max-height: 440px;
+        padding: 1rem 4rem 0rem 4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.7rem;
+        overflow: scroll;
+
+        & > p {
+          min-height: 2.5rem;
+          padding: 0rem 0.5rem;
+          width: 100%;
+          background-color: #fafafa;
+          color: ${AppStyles.color.RFPrimary};
+          display: flex;
+          align-items: center;
+          font-weight: bold;
+          border-radius: 10px;
+
+          span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 0.5rem;
+            font-size: 1.7rem;
+          }
+        }
+
+        & .__prices {
+          font-size: 1.1rem;
+          background-color: ${AppStyles.color.RFPrimary};
+          color: ${AppStyles.color.RFSecondary};
+        }
+      }
+
+      & .__contact {
+        p {
+          background-color: ${AppStyles.color.RFPrimary};
+          color: ${AppStyles.color.RFSecondary};
+        }
+      }
+    }
+
+    @keyframes right-to-left {
+      0% {
+        right: -50%;
+      }
+      100% {
+        right: 0%;
+      }
+    }
   }
 
   & .__filter {
@@ -36,7 +107,7 @@ export const Styles = styled.div`
     width: 100%;
     height: 100%;
     background-color: black;
-    opacity: 0.5;
+    opacity: 0.2;
   }
 
   & .__align {

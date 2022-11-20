@@ -30,32 +30,23 @@ export const Styles = styled.div`
   & .__container_display {
     position: absolute;
     height: 90vh;
-    width: 60vw;
+    width: 50vw;
     padding: 1rem;
     display: flex;
+    align-items: center;
     flex-direction: column;
-    gap: 1rem;
     overflow-y: scroll;
 
     background-color: white;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 20px 0px 0px 20px;
+    border-radius: 20px;
     z-index: 1;
   }
 
   & ::-webkit-scrollbar {
     border-radius: 50px;
     background-color: transparent !important;
-  }
-
-  @keyframes display {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: 90vw;
-    }
   }
 `;

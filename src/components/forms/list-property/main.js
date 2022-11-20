@@ -26,7 +26,7 @@ export class Property {
       province: property.address.province,
       city: property.address.city,
       community: property.address.community,
-      communityID: property.address.communityId,
+      communityID: property.address.communityID,
       street: property.address.street,
       number: property.address.number,
       coords: {

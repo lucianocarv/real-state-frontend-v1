@@ -46,21 +46,19 @@ export const Form = () => {
         console.log("Fetch to City Finalizado");
       }
     }
-    if (inputs.address.community.length > 1) {
-      (async function () {
-        try {
-          const communityId = await getCommunityId(
-            _.kebabCase(inputs.address.province),
-            _.kebabCase(inputs.address.city),
-            _.kebabCase(inputs.address.community)
-          );
-          setInputs({ ...inputs, address: { ...inputs.address, communityId: communityId } });
-        } catch (error) {
-        } finally {
-          console.log("Fetch to Communities Finalizado");
-        }
-      })();
-    }
+    (async function () {
+      try {
+        const id = await getCommunityId(
+          _.kebabCase(inputs.address.province),
+          _.kebabCase(inputs.address.city),
+          _.kebabCase(inputs.address.community)
+        );
+        setInputs({ ...inputs, address: { ...inputs.address, communityID: id } });
+      } catch (error) {
+      } finally {
+        console.log("Fetch Community ID Finalizado");
+      }
+    })();
   }, [inputs.address.province, inputs.address.city, inputs.address.community]);
 
   function handleChange(e) {

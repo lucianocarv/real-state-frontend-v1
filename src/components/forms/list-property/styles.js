@@ -15,6 +15,9 @@ export const Styles = styled.div`
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      fieldset {
+        border-color: ${AppStyles.color.RFPrimary} !important;
+      }
     }
 
     .__section_form {
@@ -25,6 +28,9 @@ export const Styles = styled.div`
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
+      fieldset {
+        border-color: ${AppStyles.color.RFPrimary} !important;
+      }
     }
 
     .__buttons {

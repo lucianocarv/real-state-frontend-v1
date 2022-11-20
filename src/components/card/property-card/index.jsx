@@ -8,35 +8,36 @@ import { FaHandshake } from "react-icons/fa";
 import Button from "@mui/material/Button";
 
 import { Card } from "./styles";
+import _ from "lodash";
 
-const PropertyCard = ({ link, type, price, community, address, img, manager, id }) => {
+const PropertyCard = ({ property }) => {
   const { setCurrentPin } = useContext(PinContext);
 
   const handleCurrentPin = () => {
-    setCurrentPin(id);
+    setCurrentPin(property._id);
   };
   return (
     <Card onMouseEnter={handleCurrentPin}>
       <div className="__info">
-        <Link to={link}>
-          <p className="__info__price">${price}</p>
+        <Link to={property.address.community + "/" + property._id}>
+          <p className="__info__price">${property.prices.min + "-" + property.prices.max}</p>
         </Link>
         <ul className="__info__list">
           <li>
-            <IoHome /> {type}
+            <IoHome /> {property.type}
           </li>
           <li>
-            <IoPeople /> {community}
+            <IoPeople /> {property.address.community}
           </li>
           <li>
-            <IoLocationSharp /> {address}
+            <IoLocationSharp /> {property.address.street}
           </li>
           <li>
-            <FaHandshake /> {manager}
+            <FaHandshake /> {property.contact.manager}
           </li>
         </ul>
         <div className="__info__buttons">
-          <Link to={link}>
+          <Link to={_.kebabCase(property.address.community) + "/" + property._id}>
             <Button fullWidth variant="outlined">
               View
             </Button>
@@ -44,7 +45,7 @@ const PropertyCard = ({ link, type, price, community, address, img, manager, id 
         </div>
       </div>
       <div className="__img">
-        <img src={img} alt={address + " / " + community} />
+        <img src={property.img_cover} alt={property.address.street + " / " + property.address.community} />
       </div>
     </Card>
   );

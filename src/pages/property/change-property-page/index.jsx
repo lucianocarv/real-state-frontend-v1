@@ -13,23 +13,22 @@ import { Form } from "../../../components/forms/update-property";
 
 const ChangePropertyPage = () => {
   const { id } = useParams();
-
-  const [property, setPorperty] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [property, setProperty] = useState({});
 
   useEffect(() => {
-    async function getProperty() {
-      const data = await fetch(`${import.meta.env.VITE_BASE_URL}/province/city/community/${id}`);
-      const property = await data.json();
-      setPorperty(property);
-    }
     if (id) {
-      getProperty();
+      fetch(`${import.meta.env.VITE_BASE_URL}/p/c/c/${id}`)
+        .then((data) => data.json())
+        .then((property) => {
+          setProperty(property);
+          setLoading(false);
+          console.log(property);
+        });
     }
   }, [id]);
 
-  console.log(property);
-
-  return property ? (
+  return (
     <Styles>
       <div className="__container_display">
         <header>
@@ -40,16 +39,17 @@ const ChangePropertyPage = () => {
           </Link>
         </header>
         <CoordsContextProvider>
-          <LoaderContainer>
-            <BarLoader />
-          </LoaderContainer>
-          <Form />
+          {loading ? (
+            <LoaderContainer>
+              <BarLoader />
+            </LoaderContainer>
+          ) : (
+            <Form property={property} setProperty={setProperty} id={id} />
+          )}
         </CoordsContextProvider>
       </div>
       <div className="__container"></div>
     </Styles>
-  ) : (
-    ""
   );
 };
 

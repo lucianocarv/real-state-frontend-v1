@@ -54,22 +54,7 @@ const CityPage = () => {
             <ul className="__property_list">
               {allProperties.length > 0 ? (
                 allProperties.map((property) => {
-                  let community = String(property.address.community)
-                    .toLocaleLowerCase()
-                    .replace(" ", "-");
-                  return (
-                    <PropertyCard
-                      img={property.img_cover}
-                      key={property._id}
-                      type={property.type}
-                      community={property.address.community}
-                      price={property.prices.min + "-" + property.prices.max}
-                      address={property.address.street}
-                      manager={property.contact.manager}
-                      link={community + "/" + property._id}
-                      id={property._id}
-                    />
-                  );
+                  return <PropertyCard property={property} key={property._id} />;
                 })
               ) : (
                 <div className="__not_found">

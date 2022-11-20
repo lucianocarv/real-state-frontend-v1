@@ -66,11 +66,15 @@ export const GlobalStyles = createGlobalStyle`
     background-color: transparent !important;
   }
 
-  
+  .css-3v5nb6-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+        color: ${AppStyles.color.RFPrimary} !important;
+    }
 
   .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
-    color: ${AppStyles.color.RFPrimary} !important;
+    
   }
+
+  
 
   .css-md26zr-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
     border-color: ${AppStyles.color.RFPrimary} !important;
